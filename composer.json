@@ -1,0 +1,12 @@
+{
+    "name": "apnaux/cinehome-php",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Apnaux\\CinehomePhp\\": "src/"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
