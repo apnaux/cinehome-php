@@ -6,6 +6,10 @@ This is a project for our Application Development subject. Made by my team with 
 
 - nodejs
 
+## First run
+
+- run ``npm install``
+
 ## Running the website in a local server
 
 - Run ``npx tailwindcss -i input.css -o ./public/index.css --watch`` in one terminal for tailwindcss to watch changes during development.
