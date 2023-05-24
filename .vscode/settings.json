@@ -1,10 +1,10 @@
 {
-    "emeraldwalk.runonsave": {
-        "commands": [
-            {
-                "match": ".*",
-                "cmd": "npx tailwindcss -i input.css -o ./public/index.css",
-            }
-        ]
-    }
+    // "emeraldwalk.runonsave": {
+    //     "commands": [
+    //         {
+    //             "match": ".*",
+    //             "cmd": "npx tailwindcss -i input.css -o ./public/index.css",
+    //         }
+    //     ]
+    // }
 }

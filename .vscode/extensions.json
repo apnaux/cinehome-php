@@ -1,5 +1,7 @@
 {
     "recommendations": [
-        "emeraldwalk.runonsave"
+        "emeraldwalk.runonsave",
+        "devsense.phptools-vscode",
+        "devsense.profiler-php-vscode"
     ]
 }
