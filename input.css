@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('./public/fonts/InstrumentSans-Italic[wdth\,wght].ttf');
+@import url('./public/fonts/InstrumentSans[wdth\,wght].ttf');
+@import url('./public/fonts/Solitus.ttf');

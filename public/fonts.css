@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Instrument Sans';
+    src: url('fonts/InstrumentSans[wdth\,wght].ttf');
+  }
+
+@font-face {
+    font-family: 'Instrument Sans';
+    src: url('fonts/InstrumentSans-Italic[wdth\,wght].ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Solitus;
+    src: url('fonts/Solitus.ttf');
+}
