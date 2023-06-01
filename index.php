@@ -14,7 +14,7 @@
             cinehome.
         </p>
         <div class="flex flex-row space-x-12 text-white font-instrument">
-            <p>Now Showing</p>
+            <a href="/src/test.php">Now Showing</a>
             <p>FAQ</p>
             <p>Log in / Sign up</p>
         </div>
