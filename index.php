@@ -8,16 +8,22 @@
     <link href="/public/fonts.css" rel="stylesheet">
     <title>cinehome: The Home Theatre Experience</title>
 </head>
-<body class="bg-black">
-    <header class="flex flex-row justify-between items-center px-8 h-20">
+<body class="bg-red-950">
+    <header class="flex flex-row justify-between items-center px-8 h-20 bg-black bg-fixed">
         <p class="text-5xl font-bold font-solitus text-white">
             cinehome.
         </p>
+
         <div class="flex flex-row space-x-12 text-white font-instrument">
-            <p>Now Showing</p>
+            <a href="/src/test.php">Now Showing</a>
             <p>FAQ</p>
             <p>Log in / Sign up</p>
         </div>
+
     </header>
+
+    <hr>
+
+
 </body>
 </html>
