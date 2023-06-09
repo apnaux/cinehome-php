@@ -8,8 +8,8 @@
     <link href="/public/fonts.css" rel="stylesheet">
     <title>cinehome: The Home Theatre Experience</title>
 </head>
-<body class="bg-red-950">
-    <header class="flex flex-row justify-between items-center px-8 h-20 bg-black bg-fixed">
+<body class="bg-fixed bg-cover" style="background-image:url(/public/Images/Image-Background.jpg)">
+    <header class="flex flex-row justify-between items-center px-8 h-20 bg-cyan-900 sticky top-0">
         <p class="text-5xl font-bold font-solitus text-white">
             cinehome.
         </p>
@@ -19,11 +19,26 @@
             <p>FAQ</p>
             <p>Log in / Sign up</p>
         </div>
-
     </header>
 
-    <hr>
+    <div class="ml-8 mt-6">
+        <p class="text-5xl font-bold font-solitus text-white font-instrument">
+            June, 2023
+        </p>
+    </div>
 
+    <div class="ml-8 mt-6 grid grid-cols-3">
+        <div>
+            <img src="public\Images\Poster_Images\ManSpider-Poster.jpg" class="max-w-sm max-h-80" alt="ManSpider Poster">
+        </div>
 
+        <div>
+            <img src="public\Images\Poster_Images\ManBat-Poster.jpg" class="max-w-sm max-h-80" alt="ManBat Poster">  
+        </div>
+
+        <div>
+            <img src="public\Images\Poster_Images\EerieMovie-Poster.jpg" class="max-w-sm max-h-80" alt="Eerie Movie Poster">
+        </div>
+    </div>
 </body>
 </html>
