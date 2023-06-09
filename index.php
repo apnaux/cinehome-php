@@ -36,6 +36,11 @@
                             font-instrument opacity-0">
                     <p class="text-center align-bottom">
                         Lorem Ipsum dolor amet
+                        
+                        <br>
+                        <br>
+
+                        Date Watched: June 01, 2023
                     </p>
                 </div>
         </div>
@@ -47,6 +52,11 @@
                             font-instrument opacity-0">
                     <p class="text-center align-bottom">
                         Lorem Ipsum dolor amet
+
+                        <br>
+                        <br>
+
+                        Date Watched: June 01, 2023
                     </p>
                 </div>
         </div>
@@ -58,6 +68,11 @@
                             font-instrument opacity-0">
                     <p class="text-center align-bottom">
                         Lorem Ipsum dolor amet
+
+                        <br>
+                        <br>
+
+                        Date Watched: June 01, 2023
                     </p>
                 </div>
         </div>
@@ -69,6 +84,11 @@
                             font-instrument opacity-0">
                     <p class="text-center align-bottom">
                         Lorem Ipsum dolor amet
+
+                        <br>
+                        <br>
+
+                        Date Watched: June 01, 2023
                     </p>
                 </div>
         </div>
@@ -80,6 +100,11 @@
                             font-instrument opacity-0">
                     <p class="text-center align-bottom">
                         Lorem Ipsum dolor amet
+
+                        <br>
+                        <br>
+
+                        Date Watched: June 01, 2023
                     </p>
                 </div>
         </div>
@@ -91,10 +116,120 @@
                             font-instrument opacity-0">
                     <p class="text-center align-bottom">
                         Lorem Ipsum dolor amet
+                        
+                        <br>
+                        <br>
+
+                        Date Watched: June 01, 2023
                     </p>
                 </div>
         </div>
         
     </div>
+
+    <div class="ml-8 mt-6">
+        <p class="text-5xl font-bold font-solitus text-white font-instrument">
+            May, 2023
+        </p>
+    </div>
+
+    <div class="ml-8 mt-6 grid grid-cols-6">
+        <div class="h-72 w-48 bg-cover bg-center group" 
+             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+                <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
+                            from-transparent to-90% to-black p-6 text-white font-bold text-lg
+                            font-instrument opacity-0">
+                    <p class="text-center align-bottom">
+                        Lorem Ipsum dolor amet
+
+                        <br>
+                        <br>
+
+                        Date Watched: May 01, 2023
+                    </p>
+                </div>
+        </div>
+
+        <div class="h-72 w-48 bg-cover bg-center group" 
+             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+                <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
+                            from-transparent to-90% to-black p-6 text-white font-bold text-lg
+                            font-instrument opacity-0">
+                    <p class="text-center align-bottom">
+                        Lorem Ipsum dolor amet
+
+                        <br>
+                        <br>
+
+                        Date Watched: May 01, 2023
+                    </p>
+                </div>
+        </div>
+
+        <div class="h-72 w-48 bg-cover bg-center group" 
+             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+                <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
+                            from-transparent to-90% to-black p-6 text-white font-bold text-lg
+                            font-instrument opacity-0">
+                    <p class="text-center align-bottom">
+                        Lorem Ipsum dolor amet
+
+                        <br>
+                        <br>
+
+                        Date Watched: May 01, 2023
+                    </p>
+                </div>
+        </div>
+
+        <div class="h-72 w-48 bg-cover bg-center group" 
+             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+                <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
+                            from-transparent to-90% to-black p-6 text-white font-bold text-lg
+                            font-instrument opacity-0">
+                    <p class="text-center align-bottom">
+                        Lorem Ipsum dolor amet
+
+                        <br>
+                        <br>
+
+                        Date Watched: May 01, 2023
+                    </p>
+                </div>
+        </div>
+
+        <div class="h-72 w-48 bg-cover bg-center group" 
+             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+                <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
+                            from-transparent to-90% to-black p-6 text-white font-bold text-lg
+                            font-instrument opacity-0">
+                    <p class="text-center align-bottom">
+                        Lorem Ipsum dolor amet
+
+                        <br>
+                        <br>
+                        
+                        Date Watched: May 01, 2023
+                    </p>
+                </div>
+        </div>
+
+        <div class="h-72 w-48 bg-cover bg-center group" 
+             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+                <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
+                            from-transparent to-90% to-black p-6 text-white font-bold text-lg
+                            font-instrument opacity-0">
+                    <p class="text-center align-bottom">
+                        Lorem Ipsum dolor amet
+
+                        <br>
+                        <br>
+
+                        Date Watched: May 01, 2023
+                    </p>
+                </div>
+        </div>
+    </div>
+
 </body>
 </html>
