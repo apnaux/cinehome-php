@@ -5,7 +5,9 @@
 /public/storage
 /storage/*.key
 /vendor
+./public/index.css
 /public/index.css
+public/index.css
 .env
 .env.backup
 .env.production
@@ -19,4 +21,3 @@ yarn-error.log
 /.idea
 /.vscode
 connection.php
-public/index.css
