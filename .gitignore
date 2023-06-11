@@ -3,7 +3,6 @@
 /public/build
 /public/hot
 /public/storage
-/public/index.css
 /storage/*.key
 /vendor
 .env
@@ -19,3 +18,4 @@ yarn-error.log
 /.idea
 /.vscode
 connection.php
+public/index.css
