@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/eva-icons"></script>
     <link href="/public/index.css" rel="stylesheet">
     <link href="/public/fonts.css" rel="stylesheet">
-    <style>
-    </style>
     <title>cinehome: The Home Theatre Experience</title>
 </head>
 
@@ -46,55 +45,60 @@
     </header>
 
     <!-- Features -->
-    <div class="flex flex-row justify-center items-center gap-x-12 w-full h-screen font-instrument text-white" id="features">
-        <div
-            class="flex flex-col justify-start items-center h-[672px] w-[468px] rounded-3xl overflow-hidden bg-red-700/50 backdrop-blur-sm shadow-2xl shadow-red-600/40 gap-y-12">
-            <picture class="w-full">
-                <img src="/public/images/homepage/watching-something.jpg" alt="a person watching a movie">
-            </picture>
+    <div class="flex flex-col gap-x-8 py-12 justify-between items-center" id="features">
+        <h1 class="font-instrument text-white text-7xl font-bold">
+            Features that we know you'll love!
+        </h1>
+        <div class="flex flex-row justify-center items-center gap-x-12 w-full py-28 font-instrument text-white">
+            <div
+                class="flex flex-col justify-start items-center h-[672px] w-[468px] rounded-3xl overflow-hidden bg-red-700/50 backdrop-blur-sm shadow-2xl shadow-red-600/40 gap-y-12">
+                <picture class="w-full">
+                    <img src="/public/images/homepage/watching-something.jpg" alt="a person watching a movie">
+                </picture>
 
-            <div class="flex flex-col gap-y-4 px-12">
-                <h1 class="text-4xl font-bold">
-                    Cinema anywhere? we gotchu!
-                </h1>
-                <p>
-                    Access the catalog of cinemas here in the Philippines anywhere you want whether it be
-                    your house or during a roadtrip! Cinehome is right in your fingertips.
-                </p>
+                <div class="flex flex-col gap-y-4 px-12">
+                    <h1 class="text-4xl font-bold">
+                        Cinema anywhere? we gotchu!
+                    </h1>
+                    <p>
+                        Access the catalog of cinemas here in the Philippines anywhere you want whether it be
+                        your house or during a roadtrip! Cinehome is right in your fingertips.
+                    </p>
+                </div>
             </div>
-        </div>
 
-        <div
-            class="flex flex-col justify-start items-center h-[672px] w-[468px] rounded-3xl overflow-hidden bg-red-700/50 backdrop-blur-sm shadow-2xl shadow-red-600/40 gap-y-12">
-            <picture class="w-full">
-                <img src="/public/images/homepage/paying.jpg" alt="a person watching a movie">
-            </picture>
+            <div
+                class="flex flex-col justify-start items-center h-[672px] w-[468px] rounded-3xl overflow-hidden bg-red-700/50 backdrop-blur-sm shadow-2xl shadow-red-600/40 gap-y-12">
+                <picture class="w-full">
+                    <img src="/public/images/homepage/paying.jpg" alt="a person watching a movie">
+                </picture>
 
-            <div class="flex flex-col gap-y-4 px-12">
-                <h1 class="text-4xl font-bold">
-                    Pay as you go, just like the cinemas!
-                </h1>
-                <p>
-                    No subscription fees, no hidden fees, and no other shit. Just pay for the movie you want and
-                    play it however you want.
-                </p>
+                <div class="flex flex-col gap-y-4 px-12">
+                    <h1 class="text-4xl font-bold">
+                        Pay as you go, just like the cinemas!
+                    </h1>
+                    <p>
+                        No subscription fees, no hidden fees, and no other sheesh. Just pay for the movie you want and
+                        play it however you want.
+                    </p>
+                </div>
             </div>
-        </div>
 
-        <div
-            class="flex flex-col justify-start items-center h-[672px] w-[468px] rounded-3xl overflow-hidden bg-red-700/50 backdrop-blur-sm shadow-2xl shadow-red-600/40 gap-y-12">
-            <picture class="w-full">
-                <img src="/public/images/homepage/watch-history.jpg" alt="a person watching a movie">
-            </picture>
+            <div
+                class="flex flex-col justify-start items-center h-[672px] w-[468px] rounded-3xl overflow-hidden bg-red-700/50 backdrop-blur-sm shadow-2xl shadow-red-600/40 gap-y-12">
+                <picture class="w-full">
+                    <img src="/public/images/homepage/watch-history.jpg" alt="a person watching a movie">
+                </picture>
 
-            <div class="flex flex-col gap-y-4 px-12">
-                <h1 class="text-4xl font-bold">
-                    Access your watch history!
-                </h1>
-                <p>
-                    Want to recommend a movie but you don't remember the movie that you watched?
-                    No worries, cinehome lists all the movies you watched so you can recall them anytime!
-                </p>
+                <div class="flex flex-col gap-y-4 px-12">
+                    <h1 class="text-4xl font-bold">
+                        Access your watch history!
+                    </h1>
+                    <p>
+                        Want to recommend a movie but you don't remember the movie that you watched?
+                        No worries, cinehome lists all the movies you watched so you can recall them anytime!
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -192,9 +196,42 @@
     </div>
 
     <!-- Footer -->
-    <div class="">
+    <footer
+        class="flex flex-row px-28 py-12 w-full justify-between items-center font-instrument bg-gradient-to-b from-black from-90% to-red-950">
+        <div class="flex flex-col justify-between items-start h-full gap-y-12">
+            <div class="flex flex-col justify-start items-start text-white leading-tight">
+                <h1 class="font-solitus text-7xl">cinehome</h1>
+                <p>the home theatre experience.</p>
+            </div>
 
-    </div>
+            <div class="flex flex-row items-start gap-x-4">
+                <i data-eva="facebook"></i>
+                <i data-eva="twitter"></i>
+            </div>
+
+            <div class="flex flex-col justify-start items-start gap-y-2 text-white font-instrument leading-tight">
+                <div class="flex flex-row gap-x-2">
+                    <i data-eva="phone-call"></i>
+                    <p>099 9998 999</p>
+                </div>
+
+                <div class="flex flex-row gap-x-2">
+                    <i data-eva="email"></i>
+                    <p>hello@cinehome.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col justify-between items-end h-full">
+            <!-- Payment Methods -->
+        </div>
+    </footer>
+
+    <script>
+        eva.replace({
+            fill: '#FFFFFF',
+        });
+    </script>
 </body>
 
 </html>
