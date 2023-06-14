@@ -5,6 +5,11 @@
 /public/storage
 /storage/*.key
 /vendor
+./public/index.css
+/public/index.css
+public/index.css
+composer.lock
+package-lock.json
 .env
 .env.backup
 .env.production
@@ -17,3 +22,4 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+connection.php
