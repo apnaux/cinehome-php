@@ -12,7 +12,7 @@
 </head>
 
 <body class="flex flex-col bg-fixed bg-cover select-none text-white font-instrument"
-    style="background-image: url('../assets/images/mock/profile_header.jpg');">
+    style="background-image: url('/assets/images/mock/profile_header.jpg');">
     <nav class="fixed flex flex-row justify-between items-center px-24 py-12 h-20 w-full z-50 backdrop-blur-sm">
         <a href="#" class="text-5xl font-bold font-solitus active:text-current">
             cinehome.
@@ -29,7 +29,7 @@
         class="w-screen min-h-screen flex flex-col justify-center items-center py-12 px-72 bg-gradient-to-b from-transparent to-black backdrop-contrast-150 gap-y-8">
         <div
             class="backdrop-blur-2xl backdrop-contrast-50 rounded-3xl w-full h-[348px] flex flex-row justify-start items-center gap-x-12 overflow-hidden">
-            <img src="../assets/images/mock/user/user.jpg" alt="a person" class="object-cover h-full">
+            <img src="/assets/images/mock/user/user.jpg" alt="a person" class="object-cover h-full">
             <div class="flex flex-col items-start justify-between h-full py-12">
                 <div class="flex flex-col gap-y-2">
                     <h1 class="font-bold text-4xl">
