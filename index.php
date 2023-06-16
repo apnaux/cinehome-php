@@ -12,7 +12,7 @@
 </head>
 
 <?php
-    header('Location: /pages/profile.php');
+    header('Location: /web/user/profile.php');
 ?>
 
 <body class="bg-black flex flex-col">
