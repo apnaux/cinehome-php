@@ -6,6 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?php 
+        if(isset($_GET["movieid"])){
+            echo $_GET["movieid"];
+        }
+    ?>
+    <br>
+    <a href="/web/watch/home.php">go back</a> <br>
+    <a href="/web/payments/pay.php">pay now</a>
 </body>
 </html>
