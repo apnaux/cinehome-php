@@ -5,20 +5,19 @@ This is a project for our Application Development subject. Made by my team with 
 ## Required dependencies
 
 - nodejs (https://nodejs.org/en)
-- composer (https://getcomposer.org/)
 
 ## First run
 
-- run ``npm install`` and ``composer install``
+- run ``npm install``
 
 ## Running the website in a local server
 
-- Run ``npx tailwindcss -i input.css -o ./public/index.css --watch`` in one terminal for tailwindcss to watch changes during development.
+- Run ``npx tailwindcss -i input.css -o ./assets/index.css --watch`` in one terminal for tailwindcss to watch changes during development.
 - Run ``php -S localhost:8000`` on another terminal to start the server.
 
 ## Running in production
 
-- run ``npm install`` and ``composer install --no-dev``
+- run ``npm install``
 - ...
 
 ## Helpful links:
