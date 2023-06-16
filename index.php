@@ -11,10 +11,6 @@
     <title>cinehome: The Home Theatre Experience</title>
 </head>
 
-<?php
-    header('Location: /web/user/profile.php');
-?>
-
 <body class="bg-black flex flex-col">
     <nav
         class="fixed flex flex-row justify-between items-center px-24 py-12 h-20 w-full bg-gradient-to-b from-black text-white from-20% z-50">
@@ -24,7 +20,7 @@
         <div class="flex flex-row space-x-12 font-instrument">
             <a href="#features">Features</a>
             <a href="#now-showing">Now Showing</a>
-            <a href="">Log in / Sign up</a>
+            <a href="/web/user/login.php">Log in / Sign up</a>
         </div>
     </nav>
 
