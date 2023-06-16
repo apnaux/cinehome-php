@@ -41,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             cinehome.
         </a>
         <div class="flex flex-row space-x-12">
-            <a href="">Home</a>
-            <a href="">Watch History</a>
+            <a href="/web/watch/home.php">Home</a>
+            <a href="/web/watch/watch-history.php">Watch History</a>
             <p class="font-bold">Your Profile</p>
             <a href="?logout=true">Log out</a>
         </div>

@@ -143,8 +143,8 @@
           </div>
         </div>
         <div class="footerNavWrap clearfix">
-          <div class="btn btn-success pull-left btn-fyi"><span class="glyphicon glyphicon-chevron-left"></span> RETURN</div>
-          <div class="btn btn-success pull-right btn-fyi">PROCEED<span class="glyphicon glyphicon-chevron-right"></span></div>
+          <button type="button" class="btn btn-success pull-left btn-fyi" onclick="window.location.href = '/web/watch/home.php';"><span class="glyphicon glyphicon-chevron-left"></span> RETURN</button>
+          <button type="button" class="btn btn-success pull-right btn-fyi">PROCEED<span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
       </div>
     </div>

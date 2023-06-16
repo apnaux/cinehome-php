@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
         if ($row['user_type'] == 'user') {
 
             $_SESSION['user_name'] = $row['name'];
-            header('location: profile.php');
+            header('location: ../watch/home.php');
 
         }
 
@@ -60,10 +60,8 @@ if (isset($_POST['submit'])) {
             if (isset($error)) {
                 foreach ($error as $error) {
                     echo '<span class="error-msg">' . $error . '</span>';
-                }
-                ;
-            }
-            ;
+                };
+            };
             ?>
             <input type="email" name="email" required placeholder="email">
             <input type="password" name="password" required placeholder="password">

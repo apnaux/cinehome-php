@@ -20,7 +20,7 @@
         <div class="flex flex-row space-x-12 font-instrument">
             <a href="#features">Features</a>
             <a href="#now-showing">Now Showing</a>
-            <a href="/web/user/login.php">Log in / Sign up</a>
+            <a href="/web/user/login.php" class="<?php if($_GET['nologin'] == true){echo "animate-bounce";} else {echo "";} ?>">Log in / Sign up</a>
         </div>
     </nav>
 
