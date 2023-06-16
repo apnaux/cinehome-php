@@ -1,6 +1,6 @@
 <?php
 
-@include '/connection.php';
+require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
 
 if (isset($_POST['submit'])) {
 
@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $pass = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
-    $user_type = $_POST['user_type'];
+    $user_type = 'user';
 
     $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
 
@@ -25,13 +25,11 @@ if (isset($_POST['submit'])) {
         } else {
             $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
             mysqli_query($conn, $insert);
-            header('location:login_form.php');
+            header('location:login.php');
         }
     }
 
 };
-
-
 ?>
 
 <!DOCTYPE html>
@@ -50,12 +48,12 @@ if (isset($_POST['submit'])) {
 
 </head>
 
-<body class="bg-cover bg-fixed" style="background-image: url('/assets/images/mock/film.jpg');">
+<body class="bg-cover bg-fixed font-instrument" style="background-image: url('/assets/images/mock/film.jpg');">
 
-    <div class="form-container font-instrument">
+    <div class="form-container">
 
         <form action="" method="post">
-            <h3>register now</h3>
+            <h3 class="font-solitus text-red-900">cinehome.</h3>
             <?php
             if (isset($error)) {
                 foreach ($error as $error) {
@@ -63,16 +61,12 @@ if (isset($_POST['submit'])) {
                 };
             };
             ?>
-            <input type="text" name="name" required placeholder="enter your name">
-            <input type="email" name="email" required placeholder="enter your email">
-            <input type="password" name="password" required placeholder="enter your password">
-            <input type="password" name="cpassword" required placeholder="confirm your password">
-            <select name="user_type">
-                <option value="user">user</option>
-                <option value="admin">admin</option>
-            </select>
-            <input type="submit" name="submit" value="register now" class="form-btn">
-            <p>already have an account? <a href="/web/user/login.php">login now</a></p>
+            <input type="text" name="name" required placeholder="name">
+            <input type="email" name="email" required placeholder="email">
+            <input type="password" name="password" required placeholder="password">
+            <input type="password" name="cpassword" required placeholder="confirm password">
+            <input type="submit" name="submit" value="register here" class="form-btn">
+            <p>already have an account? <a href="login.php">log in here</a></p>
             <a href="/">go back</a>
         </form>
 

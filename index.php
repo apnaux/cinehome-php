@@ -35,7 +35,7 @@
                 No need to worry about not being able to watch movies from the cinema. <br>
                 Watch the same movies being shown there right here, and right now!
             </p>
-            <button type="button"
+            <button type="button" onclick="window.location.href = '/web/user/signup.php';"
                 class="py-2 px-3 bg-red-700 rounded-lg border border-red-300 font-instrument text-white font-medium transition hover:scale-110 hover:border-red-700 active:scale-95 active:bg-red-900">
                 Sign up now!
             </button>

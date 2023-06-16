@@ -11,8 +11,31 @@
     <title>cinehome: Your Profile</title>
 </head>
 
-<body class="flex flex-col bg-fixed bg-cover select-none text-white font-instrument"
-    style="background-image: url('/assets/images/mock/profile_header.jpg');">
+<?php
+require($_SERVER["DOCUMENT_ROOT"]."/connection.php");
+
+$email = '';
+
+session_start();
+
+if($_SESSION['user_name'] == ''){
+    header('Location: /?nologin=true');
+}
+
+if (isset($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+
+    header('Location: /');
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    $email = $_POST["email"];
+}
+?>
+
+<body class="flex flex-col bg-gradient-to-r from-blue-300 via-violet-400 to-red-300 select-none text-white font-instrument relative">
+    <img src="/assets/images/mock/profile_header.jpg" alt="bg-image" class="object-cover z-0 fixed">
     <nav class="fixed flex flex-row justify-between items-center px-24 py-12 h-20 w-full z-50 backdrop-blur-sm">
         <a href="#" class="text-5xl font-bold font-solitus active:text-current">
             cinehome.
@@ -21,19 +44,19 @@
             <a href="">Home</a>
             <a href="">Watch History</a>
             <p class="font-bold">Your Profile</p>
-            <a href="">Log out</a>
+            <a href="?logout=true">Log out</a>
         </div>
     </nav>
 
     <div
-        class="w-screen min-h-screen flex flex-col justify-center items-center py-12 px-72 bg-gradient-to-b from-transparent to-black backdrop-contrast-150 gap-y-8">
+        class="w-screen min-h-screen flex flex-col justify-center items-center py-12 px-72 bg-gradient-to-b from-transparent to-black backdrop-contrast-150 gap-y-8 z-10">
         <div
             class="backdrop-blur-2xl backdrop-contrast-50 rounded-3xl w-full h-[348px] flex flex-row justify-start items-center gap-x-12 overflow-hidden">
-            <img src="/assets/images/mock/user/user.jpg" alt="a person" class="object-cover h-full">
+            <img src="/assets/images/mock/user/user.jpg" alt="a person" class="object-cover h-full contrast-125">
             <div class="flex flex-col items-start justify-between h-full py-12">
                 <div class="flex flex-col gap-y-2">
                     <h1 class="font-bold text-4xl">
-                        Alisa Rand
+                        <?php echo $_SESSION["user_name"] ?>
                     </h1>
                     <p>
                         2065 North Social Way, Santa Fe, New Mexico, 35440
@@ -58,7 +81,7 @@
 
             <div class="w-full h-[1px] bg-white"></div>
 
-            <form action="" method="post" class="flex flex-col justify-start items-start gap-y-4">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="flex flex-col justify-start items-start gap-y-4">
                 <label for="username"
                     class="flex flex-row backdrop-blur-2xl backdrop-contrast-50 rounded-xl h-12 w-96 overflow-hidden">
                     <div class="px-4 flex flex-col items-center justify-center">
@@ -69,13 +92,23 @@
                         class="bg-transparent h-full focus:outline-none flex-grow">
                 </label>
 
-                <label for="password"
+                <label for="curpassword"
+                    class="flex flex-row backdrop-blur-2xl backdrop-contrast-50 rounded-xl h-12 w-96 overflow-hidden">
+                    <div class="px-4 flex flex-col items-center justify-center">
+                        <i data-eva="unlock-outline" class="w-8"></i>
+                    </div>
+
+                    <input type="password" name="curpassword" id="curpassword" placeholder="Old Password"
+                        class="bg-transparent h-full focus:outline-none flex-grow">
+                </label>
+
+                <label for="newpassword"
                     class="flex flex-row backdrop-blur-2xl backdrop-contrast-50 rounded-xl h-12 w-96 overflow-hidden">
                     <div class="px-4 flex flex-col items-center justify-center">
                         <i data-eva="lock-outline" class="w-8"></i>
                     </div>
 
-                    <input type="password" name="password" id="password" placeholder="New Password"
+                    <input type="password" name="newpassword" id="newpassword" placeholder="New Password"
                         class="bg-transparent h-full focus:outline-none flex-grow">
                 </label>
 
@@ -89,7 +122,7 @@
 
     <!-- Footer -->
     <footer
-        class="flex flex-row px-28 py-12 w-full justify-between items-center font-instrument bg-gradient-to-b from-black from-90% to-transparent">
+        class="flex flex-row px-28 py-12 w-full justify-between items-center font-instrument bg-gradient-to-b from-black from-90% to-transparent z-10">
         <div class="flex flex-col justify-between items-start h-full gap-y-12">
             <div class="flex flex-col justify-start items-start text-white leading-tight">
                 <h1 class="font-solitus text-7xl">cinehome</h1>

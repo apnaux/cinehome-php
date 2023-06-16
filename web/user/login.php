@@ -1,6 +1,6 @@
 <?php
 
-@include '/connection.php';
+require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
 
 session_start();
 
@@ -20,15 +20,10 @@ if (isset($_POST['submit'])) {
 
         $row = mysqli_fetch_array($result);
 
-        if ($row['user_type'] == 'admin') {
-
-            $_SESSION['admin_name'] = $row['name'];
-            header('location:admin_page.php');
-
-        } elseif ($row['user_type'] == 'user') {
+        if ($row['user_type'] == 'user') {
 
             $_SESSION['user_name'] = $row['name'];
-            header('location:user_page.php');
+            header('location: profile.php');
 
         }
 
@@ -55,23 +50,25 @@ if (isset($_POST['submit'])) {
 
 </head>
 
-<body class="bg-cover bg-fixed" style="background-image: url('/assets/images/mock/film.jpg');">
+<body class="bg-cover bg-fixed font-instrument" style="background-image: url('/assets/images/mock/film.jpg');">
 
-    <div class="form-container font-instrument">
+    <div class="form-container">
 
         <form action="" method="post">
-            <h3>login now</h3>
+            <h3 class="font-solitus text-red-900">cinehome.</h3>
             <?php
             if (isset($error)) {
                 foreach ($error as $error) {
                     echo '<span class="error-msg">' . $error . '</span>';
-                };
-            };
+                }
+                ;
+            }
+            ;
             ?>
-            <input type="email" name="email" required placeholder="enter your email">
-            <input type="password" name="password" required placeholder="enter your password">
-            <input type="submit" name="submit" value="login now" class="form-btn">
-            <p>don't have an account? <a href="/web/user/signup.php">register now</a></p>
+            <input type="email" name="email" required placeholder="email">
+            <input type="password" name="password" required placeholder="password">
+            <input type="submit" name="submit" value="login here" class="form-btn">
+            <p>have no account yet? <a href="signup.php">register here</a></p>
             <a href="/">go back</a>
         </form>
 

@@ -20,23 +20,23 @@
 
 .container .content h3{
    font-size: 30px;
-   color:#333;
+   color:gray;
 }
 
 .container .content h3 span{
-   background: crimson;
-   color:#fff;
+   background: maroon;
+   color:white;
    border-radius: 5px;
    padding:0 15px;
 }
 
 .container .content h1{
    font-size: 50px;
-   color:#333;
+   color:gray;
 }
 
 .container .content h1 span{
-   color:crimson;
+   color:maroon;
 }
 
 .container .content p{
@@ -48,14 +48,14 @@
    display: inline-block;
    padding:10px 30px;
    font-size: 20px;
-   background: #333;
-   color:#fff;
+   background: gray;
+   color:white;
    margin:0 5px;
    text-transform: capitalize;
 }
 
 .container .content .btn:hover{
-   background: crimson;
+   background: maroon;
 }
 
 .form-container{
@@ -71,7 +71,7 @@
    padding:20px;
    border-radius: 5px;
    box-shadow: 0 5px 10px rgba(0,0,0,.1);
-   background: #fff;
+   background: white;
    text-align: center;
    width: 500px;
 }
@@ -79,9 +79,7 @@
 .form-container form h3{
    font-size: 30px;
    font-weight: bold;
-   text-transform: uppercase;
    margin-bottom: 10px;
-   color:#333;
 }
 
 .form-container form input,
@@ -90,42 +88,42 @@
    padding:10px 15px;
    font-size: 17px;
    margin:8px 0;
-   background: #eee;
+   background: white;
    border-radius: 5px;
 }
 
 .form-container form select option{
-   background: #fff;
+   background: white;
 }
 
 .form-container form .form-btn{
-   background: #fbd0d9;
-   color:crimson;
+   background: white;
+   color:maroon;
    text-transform: capitalize;
    font-size: 20px;
    cursor: pointer;
 }
 
 .form-container form .form-btn:hover{
-   background: crimson;
-   color:#fff;
+   background: maroon;
+   color:white;
 }
 
 .form-container form p{
    margin-top: 10px;
    font-size: 20px;
-   color:#333;
+   color:gray;
 }
 
 .form-container form p a{
-   color:crimson;
+   color:maroon;
 }
 
 .form-container form .error-msg{
    margin:10px 0;
    display: block;
-   background: crimson;
-   color:#fff;
+   background: red;
+   color:white;
    border-radius: 5px;
    font-size: 20px;
    padding:10px;
