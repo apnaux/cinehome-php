@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/eva-icons"></script>
-    <link href="/public/index.css" rel="stylesheet">
-    <link href="/public/fonts.css" rel="stylesheet">
+    <link href="/assets/index.css" rel="stylesheet">
+    <link href="/assets/fonts.css" rel="stylesheet">
     <title>cinehome: The Home Theatre Experience</title>
 </head>
+
+<?php
+    header('Location: /pages/profile.php');
+?>
 
 <body class="bg-black flex flex-col">
     <nav
@@ -19,7 +23,7 @@
         </a>
         <div class="flex flex-row space-x-12 font-instrument">
             <a href="#features">Features</a>
-            <a href="#now-showing" class="active:text-current">Now Showing</a>
+            <a href="#now-showing">Now Showing</a>
             <a href="">Log in / Sign up</a>
         </div>
     </nav>
@@ -40,7 +44,7 @@
                 Sign up now!
             </button>
         </div>
-        <img src="/public/images/header.jpg" alt="an image of a cinema"
+        <img src="/assets/images/header.jpg" alt="an image of a cinema"
             class="w-full h-full object-cover relative z-10 brightness-75">
     </header>
 
@@ -53,7 +57,7 @@
             <div
                 class="flex flex-col justify-start items-center h-[672px] w-[468px] rounded-3xl overflow-hidden bg-red-700/50 backdrop-blur-sm shadow-2xl shadow-red-600/40 gap-y-12">
                 <picture class="w-full">
-                    <img src="/public/images/homepage/watching-something.jpg" alt="a person watching a movie">
+                    <img src="/assets/images/homepage/watching-something.jpg" alt="a person watching a movie">
                 </picture>
 
                 <div class="flex flex-col gap-y-4 px-12">
@@ -70,7 +74,7 @@
             <div
                 class="flex flex-col justify-start items-center h-[672px] w-[468px] rounded-3xl overflow-hidden bg-red-700/50 backdrop-blur-sm shadow-2xl shadow-red-600/40 gap-y-12">
                 <picture class="w-full">
-                    <img src="/public/images/homepage/paying.jpg" alt="a person watching a movie">
+                    <img src="/assets/images/homepage/paying.jpg" alt="a person watching a movie">
                 </picture>
 
                 <div class="flex flex-col gap-y-4 px-12">
@@ -87,7 +91,7 @@
             <div
                 class="flex flex-col justify-start items-center h-[672px] w-[468px] rounded-3xl overflow-hidden bg-red-700/50 backdrop-blur-sm shadow-2xl shadow-red-600/40 gap-y-12">
                 <picture class="w-full">
-                    <img src="/public/images/homepage/watch-history.jpg" alt="a person watching a movie">
+                    <img src="/assets/images/homepage/watch-history.jpg" alt="a person watching a movie">
                 </picture>
 
                 <div class="flex flex-col gap-y-4 px-12">
@@ -137,7 +141,7 @@
                         </p>
                     </div>
                 </div>
-                <img src="/public/images/mock/two-bros.png" alt="two bros chilling"
+                <img src="/assets/images/mock/two-bros.png" alt="two bros chilling"
                     class="absolute top-0 w-full h-full object-cover brightness-75 z-10 transition group-hover:brightness-50">
             </button>
 
@@ -163,7 +167,7 @@
                             </p>
                         </div>
                     </div>
-                    <img src="/public/images/mock/two-bros.png" alt="two bros chilling"
+                    <img src="/assets/images/mock/two-bros.png" alt="two bros chilling"
                         class="absolute top-0 w-full brightness-75 z-10 transition group-hover:brightness-50">
                 </button>
 
@@ -188,7 +192,7 @@
                             </p>
                         </div>
                     </div>
-                    <img src="/public/images/mock/two-bros.png" alt="two bros chilling"
+                    <img src="/assets/images/mock/two-bros.png" alt="two bros chilling"
                         class="absolute top-0 w-full brightness-75 z-10 transition group-hover:brightness-50">
                 </button>
             </div>
