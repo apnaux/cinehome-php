@@ -2,11 +2,7 @@
 ./assets/index.css
 /assets/index.css
 assets/index.css
-composer.lock
 package-lock.json
-.env
-.env.backup
-.env.production
 .phpunit.result.cache
 auth.json
 npm-debug.log
