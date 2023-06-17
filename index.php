@@ -23,7 +23,7 @@
 
     /* Modal Content */
     .modal-content {
-    background-color: #000FFF;
+    background-color: #000000;
     margin: auto;
     padding: 20px;
     border: 1px solid #FFFFFF;
@@ -88,6 +88,41 @@
                         <br>
 
                         Date Watched: June 01, 2023
+
+                        <br>
+                        <br>
+
+                        <button class="underline hover:underline-offset-4" id="MS1_show_details">View Details</button>
+
+                        <div id="Details" class="modal">
+
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <center>
+                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                        height="288" width="192">
+                                </center>    
+
+                                <div class="ml-8 mt-6 grid grid-flow-row auto-rows-max gap-4">
+                                    <div>
+                                        <p class="font-solitus text-white">Title: Lorem Ipsum</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Runtime: 00:00:00</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Purchase Date: June 01, 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Completed Watch Date: June 01,2023</p>
+                                    </div>
+                                </div>
+            
+                            </div>
+
+                        </div>
+
                     </p>
                 </div>
         </div>
@@ -104,6 +139,41 @@
                         <br>
 
                         Date Watched: June 01, 2023
+
+                        <br>
+                        <br>
+
+                        <button class="underline hover:underline-offset-4" id="MS2_show_details">View Details</button>
+
+                        <div id="Details" class="modal">
+
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <center>
+                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                        height="288" width="192">
+                                </center>    
+
+                                <div class="ml-8 mt-6 grid grid-flow-row auto-rows-max gap-4">
+                                    <div>
+                                        <p class="font-solitus text-white">Title: Lorem Ipsum</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Runtime: 00:00:00</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Purchase Date: June 01, 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Completed Watch Date: June 01,2023</p>
+                                    </div>
+                                </div>
+            
+                            </div>
+
+                        </div>
+
                     </p>
                 </div>
         </div>
@@ -120,6 +190,41 @@
                         <br>
 
                         Date Watched: June 01, 2023
+
+                        <br>
+                        <br>
+
+                        <button class="underline hover:underline-offset-4" id="MS3_show_details">View Details</button>
+
+                        <div id="Details" class="modal">
+
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <center>
+                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                        height="288" width="192">
+                                </center>    
+
+                                <div class="ml-8 mt-6 grid grid-flow-row auto-rows-max gap-4">
+                                    <div>
+                                        <p class="font-solitus text-white">Title: Lorem Ipsum</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Runtime: 00:00:00</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Purchase Date: June 01, 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Completed Watch Date: June 01,2023</p>
+                                    </div>
+                                </div>
+            
+                            </div>
+
+                        </div>
+
                     </p>
                 </div>
         </div>
@@ -136,6 +241,41 @@
                         <br>
 
                         Date Watched: June 01, 2023
+
+                        <br>
+                        <br>
+
+                        <button class="underline hover:underline-offset-4" id="MS4_show_details">View Details</button>
+
+                        <div id="Details" class="modal">
+
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <center>
+                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                        height="288" width="192">
+                                </center>    
+
+                                <div class="ml-8 mt-6 grid grid-flow-row auto-rows-max gap-4">
+                                    <div>
+                                        <p class="font-solitus text-white">Title: Lorem Ipsum</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Runtime: 00:00:00</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Purchase Date: June 01, 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Completed Watch Date: June 01,2023</p>
+                                    </div>
+                                </div>
+            
+                            </div>
+
+                        </div>
+
                     </p>
                 </div>
         </div>
@@ -152,6 +292,41 @@
                         <br>
 
                         Date Watched: June 01, 2023
+
+                        <br>
+                        <br>
+
+                        <button class="underline hover:underline-offset-4" id="MS5_show_details">View Details</button>
+
+                        <div id="Details" class="modal">
+
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <center>
+                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                        height="288" width="192">
+                                </center>    
+
+                                <div class="ml-8 mt-6 grid grid-flow-row auto-rows-max gap-4">
+                                    <div>
+                                        <p class="font-solitus text-white">Title: Lorem Ipsum</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Runtime: 00:00:00</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Purchase Date: June 01, 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Completed Watch Date: June 01,2023</p>
+                                    </div>
+                                </div>
+            
+                            </div>
+
+                        </div>
+
                     </p>
                 </div>
         </div>
@@ -168,6 +343,41 @@
                         <br>
 
                         Date Watched: June 01, 2023
+
+                        <br>
+                        <br>
+
+                        <button class="underline hover:underline-offset-4" id="MS6_show_details">View Details</button>
+
+                        <div id="Details" class="modal">
+
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <center>
+                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                        height="288" width="192">
+                                </center>    
+
+                                <div class="ml-8 mt-6 grid grid-flow-row auto-rows-max gap-4">
+                                    <div>
+                                        <p class="font-solitus text-white">Title: Lorem Ipsum</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Runtime: 00:00:00</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Purchase Date: June 01, 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Completed Watch Date: June 01,2023</p>
+                                    </div>
+                                </div>
+            
+                            </div>
+
+                        </div>
+
                     </p>
                 </div>
         </div>
@@ -197,7 +407,7 @@
                         <br>
                         <br>
 
-                        <button class="border border-neutral-50 hover:border-gray-50" id="show_details">View Details</button>
+                        <button class="underline hover:underline-offset-4" id="show_details">View Details</button>
 
                         <div id="Details" class="modal">
 
@@ -244,6 +454,40 @@
                         <br>
 
                         Date Watched: May 01, 2023
+
+                        <br>
+                        <br>
+
+                        <button class="underline hover:underline-offset-4" id="show_details_5">View Details</button>
+
+                        <div id="Details" class="modal">
+
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <center>
+                                   <img class="img-modal" src="/public/Images/Poster_Images/EerieMovie-Poster.jpg"
+                                        height="288" width="192">
+                                </center>    
+
+                                <div class="ml-8 mt-6 grid grid-flow-row auto-rows-max gap-4">
+                                    <div>
+                                        <p class="font-solitus text-white">Title: Lorem Ipsum</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Runtime: 00:00:00</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Purchase Date: June 01, 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Completed Watch Date: June 01,2023</p>
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+
                     </p>
                 </div>
         </div>
@@ -260,6 +504,40 @@
                         <br>
 
                         Date Watched: May 01, 2023
+
+                        <br>
+                        <br>
+
+                        <button class="underline hover:underline-offset-4" id="show_details_4">View Details</button>
+
+                        <div id="Details" class="modal">
+
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <center>
+                                   <img class="img-modal" src="/public/Images/Poster_Images/EerieMovie-Poster.jpg"
+                                        height="288" width="192">
+                                </center>    
+
+                                <div class="ml-8 mt-6 grid grid-flow-row auto-rows-max gap-4">
+                                    <div>
+                                        <p class="font-solitus text-white">Title: Lorem Ipsum</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Runtime: 00:00:00</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Purchase Date: June 01, 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Completed Watch Date: June 01,2023</p>
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+
                     </p>
                 </div>
         </div>
@@ -276,6 +554,40 @@
                         <br>
 
                         Date Watched: May 01, 2023
+
+                        <br>
+                        <br>
+
+                        <button class="underline hover:underline-offset-4" id="show_details_3">View Details</button>
+
+                        <div id="Details" class="modal">
+
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <center>
+                                   <img class="img-modal" src="/public/Images/Poster_Images/EerieMovie-Poster.jpg"
+                                        height="288" width="192">
+                                </center>    
+
+                                <div class="ml-8 mt-6 grid grid-flow-row auto-rows-max gap-4">
+                                    <div>
+                                        <p class="font-solitus text-white">Title: Lorem Ipsum</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Runtime: 00:00:00</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Purchase Date: June 01, 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Completed Watch Date: June 01,2023</p>
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+
                     </p>
                 </div>
         </div>
@@ -292,6 +604,40 @@
                         <br>
                         
                         Date Watched: May 01, 2023
+
+                        <br>
+                        <br>
+
+                        <button class="underline hover:underline-offset-4" id="show_details_2">View Details</button>
+
+                        <div id="Details" class="modal">
+
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <center>
+                                   <img class="img-modal" src="/public/Images/Poster_Images/EerieMovie-Poster.jpg"
+                                        height="288" width="192">
+                                </center>    
+
+                                <div class="ml-8 mt-6 grid grid-flow-row auto-rows-max gap-4">
+                                    <div>
+                                        <p class="font-solitus text-white">Title: Lorem Ipsum</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Runtime: 00:00:00</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Purchase Date: June 01, 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Completed Watch Date: June 01,2023</p>
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+
                     </p>
                 </div>
         </div>
@@ -308,6 +654,40 @@
                         <br>
 
                         Date Watched: May 01, 2023
+
+                        <br>
+                        <br>
+
+                        <button class="underline hover:underline-offset-4" id="show_details_1">View Details</button>
+
+                        <div id="Details" class="modal">
+
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <center>
+                                   <img class="img-modal" src="/public/Images/Poster_Images/EerieMovie-Poster.jpg"
+                                        height="288" width="192">
+                                </center>    
+
+                                <div class="ml-8 mt-6 grid grid-flow-row auto-rows-max gap-4">
+                                    <div>
+                                        <p class="font-solitus text-white">Title: Lorem Ipsum</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Runtime: 00:00:00</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Purchase Date: June 01, 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-solitus text-white">Completed Watch Date: June 01,2023</p>
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+
                     </p>
                 </div>
         </div>
@@ -318,7 +698,313 @@
 var modal = document.getElementById("Details");
 
 // Get the button that opens the modal
+var btn = document.getElementById("MS1_show_details");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* Second Button */
+
+// Get the modal
+var modal = document.getElementById("Details");
+
+// Get the button that opens the modal
+var btn = document.getElementById("MS2_show_details");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* Third Button */
+
+// Get the modal
+var modal = document.getElementById("Details");
+
+// Get the button that opens the modal
+var btn = document.getElementById("MS3_show_details");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* Fourth Button */
+
+// Get the modal
+var modal = document.getElementById("Details");
+
+// Get the button that opens the modal
+var btn = document.getElementById("MS4_show_details");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* Fifth Button */
+
+// Get the modal
+var modal = document.getElementById("Details");
+
+// Get the button that opens the modal
+var btn = document.getElementById("MS5_show_details");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* Sixth Button */
+// Get the modal
+var modal = document.getElementById("Details");
+
+// Get the button that opens the modal
+var btn = document.getElementById("MS6_show_details");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* First Button */
+
+// Get the modal
+var modal = document.getElementById("Details");
+
+// Get the button that opens the modal
 var btn = document.getElementById("show_details");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* Second Button */
+
+// Get the modal
+var modal = document.getElementById("Details");
+
+// Get the button that opens the modal
+var btn = document.getElementById("show_details_1");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* Third Button */
+
+// Get the modal
+var modal = document.getElementById("Details");
+
+// Get the button that opens the modal
+var btn = document.getElementById("show_details_2");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* Fourth Button */
+
+// Get the modal
+var modal = document.getElementById("Details");
+
+// Get the button that opens the modal
+var btn = document.getElementById("show_details_3");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* Fifth Button */
+
+// Get the modal
+var modal = document.getElementById("Details");
+
+// Get the button that opens the modal
+var btn = document.getElementById("show_details_4");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* Sixth Button */
+// Get the modal
+var modal = document.getElementById("Details");
+
+// Get the button that opens the modal
+var btn = document.getElementById("show_details_5");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
