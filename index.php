@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/public/index.css" rel="stylesheet">
-    <link href="/public/fonts.css" rel="stylesheet">
+    <link href="/assets/index.css" rel="stylesheet">
+    <link href="/assets/fonts.css" rel="stylesheet">
     <title>cinehome: The Home Theatre Experience</title>
     <style>
         /* The Modal (background) */
@@ -55,7 +55,7 @@
     </style>
 
 </head>
-<body class="bg-fixed bg-cover" style="background-image:url(/public/Images/Image-Background.jpg)">
+<body class="bg-fixed bg-cover" style="background-image:url(/assets/Images/Image-Background.jpg)">
     <header class="flex flex-row justify-between items-center px-8 h-20
                    bg-gradient-to-b from-black via-black to-transparent">
         <p class="text-5xl font-bold font-solitus text-white">
@@ -77,7 +77,7 @@
 
     <div class="ml-8 mt-6 grid grid-cols-6">
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/ManSpider-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/ManSpider-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0">
@@ -100,7 +100,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/ManSpider-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
@@ -128,7 +128,7 @@
         </div>
 
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/ManSpider-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/ManSpider-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0">
@@ -151,7 +151,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/ManSpider-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
@@ -179,7 +179,7 @@
         </div>
 
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/ManSpider-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/ManSpider-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0">
@@ -202,7 +202,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/ManSpider-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
@@ -230,7 +230,7 @@
         </div>
 
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/ManSpider-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/ManSpider-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0">
@@ -253,7 +253,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/ManSpider-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
@@ -281,7 +281,7 @@
         </div>
 
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/ManSpider-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/ManSpider-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0">
@@ -304,7 +304,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/ManSpider-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
@@ -332,7 +332,7 @@
         </div>
 
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/ManSpider-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/ManSpider-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0">
@@ -355,7 +355,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/ManSpider-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/ManSpider-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
@@ -392,7 +392,7 @@
 
     <div class="ml-8 mt-6 grid grid-cols-6">
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/EerieMovie-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0 ">
@@ -415,7 +415,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/EerieMovie-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/EerieMovie-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
@@ -443,7 +443,7 @@
         </div>
 
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/EerieMovie-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0">
@@ -466,7 +466,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/EerieMovie-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/EerieMovie-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
@@ -493,7 +493,7 @@
         </div>
 
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/EerieMovie-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0">
@@ -516,7 +516,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/EerieMovie-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/EerieMovie-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
@@ -543,7 +543,7 @@
         </div>
 
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/EerieMovie-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0">
@@ -566,7 +566,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/EerieMovie-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/EerieMovie-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
@@ -593,7 +593,7 @@
         </div>
 
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/EerieMovie-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0">
@@ -616,7 +616,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/EerieMovie-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/EerieMovie-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
@@ -643,7 +643,7 @@
         </div>
 
         <div class="h-72 w-48 bg-cover bg-center group" 
-             style="background-image: url('public/Images/Poster_Images/EerieMovie-Poster.jpg')">
+             style="background-image: url('assets/Images/Poster_Images/EerieMovie-Poster.jpg')">
                 <div class="h-full w-full group-hover:bg-gradient-to-b group-hover:opacity-100
                             from-transparent to-90% to-black p-6 text-white font-bold text-lg
                             font-instrument opacity-0">
@@ -666,7 +666,7 @@
                                 <span class="close">&times;</span>
 
                                 <center>
-                                   <img class="img-modal" src="/public/Images/Poster_Images/EerieMovie-Poster.jpg"
+                                   <img class="img-modal" src="/assets/Images/Poster_Images/EerieMovie-Poster.jpg"
                                         height="288" width="192">
                                 </center>    
 
