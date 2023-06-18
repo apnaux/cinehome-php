@@ -11,6 +11,12 @@
     <title>cinehome: The Home Theatre Experience</title>
 </head>
 
+<?php
+
+session_start()
+
+    ?>
+
 <body class="bg-black flex flex-col">
     <nav
         class="fixed flex flex-row justify-between items-center px-24 py-12 h-20 w-full bg-gradient-to-b from-black text-white from-20% z-50">
@@ -20,7 +26,18 @@
         <div class="flex flex-row space-x-12 font-instrument">
             <a href="#features">Features</a>
             <a href="#now-showing">Now Showing</a>
-            <a href="/web/user/login.php" class="<?php if($_GET['nologin'] == true){echo "animate-bounce";} else {echo "";} ?>">Log in / Sign up</a>
+            <?php if ($_SESSION['user_name'] == '') { ?>
+                <a href="/web/user/login.php" class="relative">
+                    Log in / Sign up
+                    <?php if ($_GET['nologin'] == true) { ?>
+                        <span class="absolute flex h-3 w-3 -right-3 -top-1">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-red-700"></span>
+                        </span>
+                    <?php } ?>
+                </a>
+            <?php } ?>
         </div>
     </nav>
 
@@ -35,10 +52,17 @@
                 No need to worry about not being able to watch movies from the cinema. <br>
                 Watch the same movies being shown there right here, and right now!
             </p>
-            <button type="button" onclick="window.location.href = '/web/user/signup.php';"
-                class="py-2 px-3 bg-red-700 rounded-lg border border-red-300 font-instrument text-white font-medium transition hover:scale-110 hover:border-red-700 active:scale-95 active:bg-red-900">
-                Sign up now!
-            </button>
+            <?php if ($_SESSION['user_name'] != '') { ?>
+                <button type="button" onclick="window.location.href = '/web/watch/home.php';"
+                    class="py-2 px-3 bg-red-700 rounded-lg border border-red-300 font-instrument text-white font-medium transition hover:scale-110 hover:border-red-700 active:scale-95 active:bg-red-900">
+                    Go to the App
+                </button>
+            <?php } else { ?>
+                <button type="button" onclick="window.location.href = '/web/user/signup.php';"
+                    class="py-2 px-3 bg-red-700 rounded-lg border border-red-300 font-instrument text-white font-medium transition hover:scale-110 hover:border-red-700 active:scale-95 active:bg-red-900">
+                    Sign up now!
+                </button>
+            <?php } ?>
         </div>
         <img src="/assets/images/header.jpg" alt="an image of a cinema"
             class="w-full h-full object-cover relative z-10 brightness-75">
@@ -106,7 +130,7 @@
     <!-- Now Showing -->
     <div class="h-auto w-full bg-gradient-to-b from-black via-red-950 to-black" id="now-showing">
         <div class="flex flex-col gap-y-6 scale-95">
-            <button type="button"
+            <button type="button" onclick="window.location.href = '/web/user/signup.php/?movieid=1';"
                 class="text-left text-white font-instrument h-[720px] w-full relative overflow-clip bg-red-950 group transition active:scale-95 rounded-2xl">
                 <div
                     class="flex flex-col justify-center items-end space-y-4 z-30 absolute h-full w-1/2 right-0 bg-gradient-to-l from-black from-20% transition opacity-0 group-hover:opacity-100">
@@ -142,7 +166,7 @@
             </button>
 
             <div class="flex flex-row gap-x-6">
-                <button type="button"
+                <button type="button" onclick="window.location.href = '/web/user/signup.php/?movieid=2';"
                     class="text-left text-white font-instrument h-[720px] w-full relative overflow-clip bg-red-950 group transition active:scale-95 rounded-2xl">
                     <div
                         class="p-16 w-full h-full flex flex-col items-start justify-between z-20 relative transition group-hover:scale-90">
@@ -167,7 +191,7 @@
                         class="absolute top-0 w-full brightness-75 z-10 transition group-hover:brightness-50">
                 </button>
 
-                <button type="button"
+                <button type="button" onclick="window.location.href = '/web/user/signup.php/?movieid=3';"
                     class="text-left text-white font-instrument h-[720px] w-full relative overflow-clip bg-red-950 group transition active:scale-95 rounded-2xl">
                     <div
                         class="p-16 w-full h-full flex flex-col items-start justify-between z-20 relative transition group-hover:scale-90">

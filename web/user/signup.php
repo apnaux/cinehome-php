@@ -4,8 +4,12 @@ require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
 
 session_start();
 
-if ($_SESSION['user_name'] != '') {
-    header('Location: ../watch/home.php');
+if ($_SESSION['user_name']) {
+    if($_GET['movieid']){
+        header('Location: /web/watch/movie-details.php' . '/?movieid='. $_GET['movieid']);
+        die();
+    }
+    header('Location: /web/watch/home.php');
 }
 
 if (isset($_POST['submit'])) {
@@ -31,7 +35,13 @@ if (isset($_POST['submit'])) {
         } else {
             $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
             mysqli_query($conn, $insert);
-            header('location:login.php');
+
+            if($_GET['movieid']){
+                header('Location: login.php' . '/?movieid='. $_GET['movieid']);
+                die();
+            }
+
+            header('location: login.php');
         }
     }
 
@@ -50,7 +60,7 @@ if (isset($_POST['submit'])) {
     <link href="/assets/fonts.css" rel="stylesheet">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="user.style.css">
+    <link rel="stylesheet" href="/web/user/user.style.css">
 
 </head>
 
@@ -72,7 +82,7 @@ if (isset($_POST['submit'])) {
             <input type="password" name="password" required placeholder="password">
             <input type="password" name="cpassword" required placeholder="confirm password">
             <input type="submit" name="submit" value="register here" class="form-btn">
-            <p>already have an account? <a href="login.php">log in here</a></p>
+            <p>already have an account? <a href="/web/user/login.php/<?php if($_GET['movieid']){ echo '?movieid=' . $_GET['movieid']; } ?>">log in here</a></p>
             <a href="/">go back</a>
         </form>
 

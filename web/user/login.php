@@ -5,7 +5,11 @@ require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
 session_start();
 
 if ($_SESSION['user_name'] != '') {
-    header('Location: ../watch/home.php');
+    if($_GET['movieid']){
+        header('Location: /web/watch/movie-details.php' . '/?movieid='. $_GET['movieid']);
+        die();
+    }
+    header('Location: /web/watch/home.php');
 }
 
 if (isset($_POST['submit'])) {
@@ -27,7 +31,13 @@ if (isset($_POST['submit'])) {
         if ($row['user_type'] == 'user') {
 
             $_SESSION['user_name'] = $row['name'];
-            header('location: ../watch/home.php');
+
+            if($_GET['movieid']){
+                header('Location: ' . $_SERVER["DOCUMENT_ROOT"] . '/web/watch/home.php' . '/?movieid='. $_GET['movieid']);
+                die();
+            }
+
+            header('location: /web/watch/home.php');
 
         }
 
@@ -50,7 +60,7 @@ if (isset($_POST['submit'])) {
     <link href="/assets/fonts.css" rel="stylesheet">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="user.style.css">
+    <link rel="stylesheet" href="/web/user/user.style.css">
 
 </head>
 
@@ -70,7 +80,7 @@ if (isset($_POST['submit'])) {
             <input type="email" name="email" required placeholder="email">
             <input type="password" name="password" required placeholder="password">
             <input type="submit" name="submit" value="login here" class="form-btn">
-            <p>have no account yet? <a href="signup.php">register here</a></p>
+            <p>have no account yet? <a href="/web/user/signup.php/<?php if($_GET['movieid']){ echo '?movieid=' . $_GET['movieid']; } ?>">register here</a></p>
             <a href="/">go back</a>
         </form>
 
