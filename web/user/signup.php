@@ -18,25 +18,24 @@ if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $pass = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
-    $user_type = 'user';
 
-    $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
+    $select = " SELECT * FROM account WHERE email = '$email' && password = '$pass' ";
 
     $result = mysqli_query($conn, $select);
 
     if (mysqli_num_rows($result) > 0) {
 
-        $error[] = 'user already exist!';
+        $error[] = 'user already exists!';
 
     } else {
 
         if ($pass != $cpass) {
             $error[] = 'password not matched!';
         } else {
-            $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
+            $insert = "INSERT INTO account(email, password, full_name, full_address) VALUES('$email','$pass','$name','NU Laguna')";
             mysqli_query($conn, $insert);
 
-            if($_GET['movieid']){
+            if($_GET['movieid'] != ''){
                 header('Location: login.php' . '/?movieid='. $_GET['movieid']);
                 die();
             }
@@ -81,8 +80,8 @@ if (isset($_POST['submit'])) {
             <input type="email" name="email" required placeholder="email">
             <input type="password" name="password" required placeholder="password">
             <input type="password" name="cpassword" required placeholder="confirm password">
-            <input type="submit" name="submit" value="register here" class="form-btn">
-            <p>already have an account? <a href="/web/user/login.php/<?php if($_GET['movieid']){ echo '?movieid=' . $_GET['movieid']; } ?>">log in here</a></p>
+            <input type="submit" name="submit" value="sign up here!" class="form-btn">
+            <p>already have an account? <a href="/web/user/login.php/<?php if($_GET['movieid']){ echo '?movieid=' . $_GET['movieid']; } ?>">log in here!</a></p>
             <a href="/">go back</a>
         </form>
 
