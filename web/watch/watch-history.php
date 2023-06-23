@@ -59,6 +59,29 @@
 
 </head>
 
+<?php
+require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
+
+$email = '';
+
+session_start();
+
+if ($_SESSION['user_name'] == '') {
+    header('Location: /?nologin=true');
+}
+
+if (isset($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+
+    header('Location: /');
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    header('Location: movie-details.php/?movieid=' . $_POST["movie-select"]);
+}
+?>
+
 <body class="bg-fixed bg-cover" style="background-image:url(/assets/Images/Image-Background.jpg)">
     <nav class="flex flex-row justify-between items-center px-24 py-12 h-20 w-full z-50 backdrop-blur-sm font-instrument text-white">
         <a href="#" class="text-5xl font-bold font-solitus active:text-current">

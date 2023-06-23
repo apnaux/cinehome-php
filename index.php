@@ -11,12 +11,6 @@
     <title>cinehome: The Home Theatre Experience</title>
 </head>
 
-<?php
-
-session_start()
-
-    ?>
-
 <body class="bg-black flex flex-col">
     <nav
         class="fixed flex flex-row justify-between items-center px-24 py-12 h-20 w-full bg-gradient-to-b from-black text-white from-20% z-50">
@@ -53,7 +47,7 @@ session_start()
                 Watch the same movies being shown there right here, and right now!
             </p>
             <?php if ($_SESSION['user_name'] != '') { ?>
-                <button type="button" onclick="window.location.href = '/web/watch/home.php';"
+                <button type="button" onclick="  window.location.href = '/web/watch/home.php';"
                     class="py-2 px-3 bg-red-700 rounded-lg border border-red-300 font-instrument text-white font-medium transition hover:scale-110 hover:border-red-700 active:scale-95 active:bg-red-900">
                     Go to the App
                 </button>

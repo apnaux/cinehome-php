@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/eva-icons"></script>
+    <link href="/assets/index.css" rel="stylesheet">
+    <link href="/assets/fonts.css" rel="stylesheet">
+    <title>cinehome: Watch Movie</title>
+</head>
+
+<body class="bg-black h-max w-max group relative font-instrument text-white">
+    <div id="loading"
+        class="absolute z-40 top-0 h-screen w-screen bg-black flex flex-col justify-center items-center transition-opacity opacity-100">
+        <i data-eva="loader-outline" data-eva-height="56" data-eva-width="56" class="animate-spin"></i>
+    </div>
+    <div id="controls"
+        class="absolute z-10 top-0 h-32 w-full px-12 bg-gradient-to-b from-black to-transparent flex flex-row justify-between items-center opacity-0 transition-opacity">
+        <div class="flex flex-row gap-x-4 items-center">
+            <a onclick="goBack()" class="group">
+                <i data-eva="arrow-ios-back-outline" data-eva-height="32" data-eva-width="32"></i>
+            </a>
+            <h1 class="font-medium" id="title"></h1>
+        </div>
+    </div>
+    <video class="w-screen h-screen z-0" id="videoplay" onclick="togglePlay()" preload="metadata"></video>
+    <div id="controls"
+        class="absolute z-10 bottom-0 h-32 w-full px-12 bg-gradient-to-t from-black to-transparent flex flex-row justify-between items-center opacity-0 transition-opacity">
+        <a onclick="togglePlay()" class="relative">
+            <i data-eva="play-circle-outline" data-eva-height="32" data-eva-width="32" id="togglePlay"
+                class="absolute"></i>
+            <i data-eva="pause-circle-outline" data-eva-height="32" data-eva-width="32" id="togglePause"
+                class="absolute hidden"></i>
+        </a>
+    </div>
+
+    <div id="ended"
+        class="absolute z-40 top-0 h-screen w-screen backdrop-blur-sm backdrop-contrast-50 flex-col justify-center items-center gap-y-2 transition-opacity hidden opacity-0">
+         <h1 class="text-2xl font-bold">Video has ended.</h1>
+         <a onclick="goBack()" class="cursor-pointer">Go back.</a>
+    </div>
+
+    <script>
+        let player = document.getElementById("videoplay");
+
+        let paused = true;
+        let movie = 0;
+        let data = {};
+
+        window.onload = () => {
+            const param = new URLSearchParams(new URL(window.location.href).search);
+            movie = param.get('movieid');
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    data = JSON.parse(this.responseText);
+                    player.src = data["file_location"];
+                }
+            };
+            xmlhttp.open("GET", "getmovie.php?movieid=" + movie, true);
+            xmlhttp.send();
+        };
+
+        function goBack(){
+            window.location.href = "movie-details.php?movieid=" + movie;
+        }
+
+        const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+        let ready = false;
+        player.onloadeddata = async () => {
+            const title = document.getElementById("title");
+            const loading = document.getElementById("loading");
+            ready = true;
+            player.currentTime = 200;
+            player.volume = 0.5;
+            title.innerText = data["movie_title"];
+            loading.classList.add("opacity-0");
+            loading.classList.remove("opacity-100");
+            await sleep(500);
+            loading.classList.add("hidden");
+            loading.classList.remove("flex");
+        }
+
+        var timeout;
+        document.onmousemove = function () {
+            document.body.style.cursor = 'auto';
+            document.querySelectorAll("#controls").forEach(el => {
+                el.classList.add('opacity-100');
+                el.classList.remove('opacity-0');
+            });
+
+            clearTimeout(timeout);
+            player.onplaying = () => {
+                timeout = setTimeout(() => {
+                    document.body.style.cursor = 'none';
+                    document.querySelectorAll("#controls").forEach(el => {
+                        el.classList.add('opacity-0');
+                        el.classList.remove('opacity-100');
+                    });
+                }, 5000);
+            }
+        }
+
+        // FOR SAVING CURRENT TIME
+        // let seconds = 0;
+        // let interval = setInterval(() => {
+        //     if (!paused) {
+        //         seconds = seconds + 1;
+        //     }
+        // }, 1000);
+
+        player.onended = async () => {
+            // Show end screen here
+            const ended = document.querySelector("#ended");
+
+            ended.classList.remove('hidden');
+            ended.classList.add('flex');
+
+            await sleep(100);
+
+            ended.classList.remove('opacity-0');
+            ended.classList.remove('opacity-100');
+        }
+
+        player.onpause = () => {
+            document.body.style.cursor = 'auto';
+            document.querySelectorAll("#controls").forEach(el => {
+                if (el.classList.contains('opacity-0')) {
+                    el.classList.add('opacity-100');
+                    el.classList.remove('opacity-0');
+                }
+            });
+        }
+
+        function togglePlay() {
+            const play = document.getElementById("togglePlay");
+            const pause = document.getElementById("togglePause");
+
+            if (ready) {
+                if (player.paused) {
+                    player.play();
+                    play.classList.add("hidden");
+                    pause.classList.remove("hidden");
+                } else {
+                    player.pause();
+                    play.classList.remove("hidden");
+                    pause.classList.add("hidden");
+                }
+                paused = player.paused;
+            }
+
+            return true;
+        }
+
+        eva.replace({
+            fill: '#FFFFFF',
+        });
+    </script>
+</body>
+
+</html>
