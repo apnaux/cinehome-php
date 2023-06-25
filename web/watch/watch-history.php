@@ -59,7 +59,7 @@
         .search-bar {
       background-color: rgba(255, 255, 255, 0.5);
       border: none;
-      width: 400px; /* Adjust the width as needed */
+      width: 800px; /* Adjust the width as needed */
       display: flex;
       align-items: center;
       padding: 5px;
@@ -99,11 +99,12 @@
     </nav>
 
     <!-- Search Button -->
-    <div class="search-bar">
-        <input type="text" placeholder="Search...">
-        <button type="submit">Search</button>
-    </div>
-
+    <center>
+        <div class="search-bar mt-2 mb-2">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+        </div>
+    </center>
 
     <div class="ml-8 mt-6">
         <p class="text-5xl font-bold text-white font-instrument">
