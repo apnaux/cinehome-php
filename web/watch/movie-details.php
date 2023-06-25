@@ -8,10 +8,11 @@
     <link href="/assets/fonts.css" rel="stylesheet">
     <title>cinehome: The Home Theatre Experience</title>
 </head>
-<body class="bg-fixed bg-cover" style="background-image:url(/assets/Images/header.jpg)">
+<body class="bg-fixed bg-cover text-white" style="background-image:url(/assets/Images/header.jpg)">
     <?php 
+        $movie = "";
         if(isset($_GET["movieid"])){
-            echo $_GET["movieid"];
+            $movie =  $_GET["movieid"];
         }
     ?>
 
@@ -76,6 +77,7 @@
     
     <br>
     <a href="/web/watch/home.php">go back</a> <br>
+    <a href="/web/watch/watch-movie.html?movieid=<?php echo $movie; ?>">watch movie</a> <br>
     <a href="/web/payments/pay.php">pay now</a>
 </body>
 </html>

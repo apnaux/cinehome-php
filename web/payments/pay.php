@@ -144,7 +144,7 @@
         </div>
         <div class="footerNavWrap clearfix">
           <button type="button" class="btn btn-success pull-left btn-fyi" onclick="window.location.href = '/web/watch/home.php';"><span class="glyphicon glyphicon-chevron-left"></span> RETURN</button>
-          <button type="button" class="btn btn-success pull-right btn-fyi">PROCEED<span class="glyphicon glyphicon-chevron-right"></span></button>
+          <button type="button" class="btn btn-success pull-right btn-fyi" onclick="window.location.href = 'payment.php';">PROCEED<span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
       </div>
     </div>

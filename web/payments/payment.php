@@ -102,7 +102,7 @@
                     <div class="Popup" id="popupID">
                         <h2>Payment Successful</h2>
                         <p>Your movie has been successfully purchased.</p>
-                        <button type="button" class="btn btn-success btn-block" onclick="closePopup()">Confirm</button>
+                        <button type="button" class="btn btn-success btn-block" onclick="closePopup(); window.location.href = '/web/watch/movie-details.php?movieid=1';">Confirm</button>
                     </div>
                 </div>
             </form>
