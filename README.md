@@ -9,6 +9,7 @@ This is a project for our Application Development subject. Made by my team with 
 ## First run
 
 - run ``npm install``
+- Run ``npx tailwindcss -i input.css -o ./assets/index.css`` to initialize TailwindCSS.
 
 ## Running the website in a local server
 

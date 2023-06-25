@@ -36,7 +36,7 @@
     </div>
 
     <div id="ended"
-        class="absolute z-40 top-0 h-screen w-screen backdrop-blur-sm backdrop-contrast-50 flex-col justify-center items-center gap-y-2 transition-opacity hidden opacity-0">
+        class="message absolute z-40 top-0 h-screen w-screen backdrop-blur-sm backdrop-contrast-50 flex-col justify-center items-center gap-y-2 transition-opacity hidden opacity-0">
          <h1 class="text-2xl font-bold">Video has ended.</h1>
          <a onclick="goBack()" class="cursor-pointer">Go back.</a>
     </div>
@@ -153,6 +153,10 @@
             }
 
             return true;
+        }
+
+        function whyAreYouHere(){
+            // why are you here?
         }
 
         eva.replace({

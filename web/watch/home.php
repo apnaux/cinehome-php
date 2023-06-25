@@ -31,7 +31,9 @@ if (isset($_GET['logout'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    header('Location: details.php/?movieid=' . $_POST["movie-select"]);
+    if(isset($_POST["movie-select"])){
+        header('Location: details.php/?movieid=' . $_POST["movie-select"]);
+    }
 }
 
 $select = "SELECT * FROM movie WHERE status='showing'";
@@ -69,7 +71,7 @@ mysqli_close($conn);
                         Watch now!
                     </h1>
                     <p class="mx-auto">
-                        Available 'til <?php echo date_format(date_create($rows[0][6]), 'F d, Y') ?>!
+                        Available 'til <?php echo date_format(date_create($rows[0][8]), 'F d, Y') ?>!
                     </p>
                 </div>
                 <div
@@ -91,7 +93,7 @@ mysqli_close($conn);
                         </p>
                     </div>
                 </div>
-                <img src="<?php echo $rows[0][8] ?>" alt="two bros chilling"
+                <img src="<?php echo $rows[0][10] ?>" alt="two bros chilling"
                     class="absolute top-0 w-full h-full object-cover brightness-75 z-10 transition group-hover:brightness-50">
             </button>
 
@@ -112,11 +114,11 @@ mysqli_close($conn);
                                 <?php echo $rows[1][1] ?>
                             </p>
                             <p class="font-instrument">
-                                Available 'til <?php echo date_format(date_create($rows[1][6]), 'F d, Y') ?>!
+                                Available 'til <?php echo date_format(date_create($rows[1][8]), 'F d, Y') ?>!
                             </p>
                         </div>
                     </div>
-                    <img src="<?php echo $rows[1][8] ?>" alt="two bros chilling"
+                    <img src="<?php echo $rows[1][10] ?>" alt="two bros chilling"
                         class="absolute top-0 w-full brightness-75 z-10 transition group-hover:brightness-50">
                 </button>
 
@@ -136,11 +138,11 @@ mysqli_close($conn);
                                 <?php echo $rows[2][1] ?>
                             </p>
                             <p class="font-instrument">
-                                Available 'til <?php echo date_format(date_create($rows[2][6]), 'F d, Y') ?>!
+                                Available 'til <?php echo date_format(date_create($rows[2][8]), 'F d, Y') ?>!
                             </p>
                         </div>
                     </div>
-                    <img src="<?php echo $rows[2][8] ?>" alt="two bros chilling"
+                    <img src="<?php echo $rows[2][10] ?>" alt="two bros chilling"
                         class="absolute top-0 w-full brightness-75 z-10 transition group-hover:brightness-50">
                 </button>
             </div>

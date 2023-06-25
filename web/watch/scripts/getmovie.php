@@ -11,4 +11,5 @@ $details = array('movie_id'=>$row['id'], 'movie_title'=>$row['title'], 'duration
 
 echo json_encode($details);
 
+mysqli_close($conn);
 ?>
