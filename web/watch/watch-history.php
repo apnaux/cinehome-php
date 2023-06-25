@@ -55,6 +55,32 @@
         .img-modal {
             border: 2px solid #808080;
         }
+
+        .search-bar {
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none;
+      width: 400px; /* Adjust the width as needed */
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      border-radius: 20px;
+    }
+
+    .search-bar input[type="text"] {
+      flex: 1;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      padding: 5px;
+    }
+
+    .search-bar button {
+      background-color: transparent;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
     </style>
 
 </head>
@@ -71,6 +97,13 @@
             <a href="?logout=true">Log out</a>
         </div>
     </nav>
+
+    <!-- Search Button -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+    </div>
+
 
     <div class="ml-8 mt-6">
         <p class="text-5xl font-bold text-white font-instrument">
