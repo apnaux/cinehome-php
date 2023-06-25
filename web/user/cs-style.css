@@ -1,0 +1,112 @@
+*{
+    padding: 0px ;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family:Georgia, serif;
+    color: white;
+}
+  
+body{
+    background-image: url("https://www.astound.com/wp-content/uploads/2022/11/netflix-hero-200x600-darker-1.webp");
+    background-size: cover;
+    text-align: center;
+}
+
+
+
+.contact-form{
+    margin-top: 100px;
+    color: white;
+    text-transform: uppercase;
+    transition: all 4s ease-in-out;
+}
+
+.contact-form h1{
+    font-size: 32px;
+}
+
+.contact-form h2{
+    font-size: 16px;
+    line-height: 30px;
+    }
+    
+form{
+    margin-top: 50px;
+    transition: all 4s ease-in-out ;
+}
+
+.form-control{
+    width: 400px;
+    background: white;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    color: black;
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+
+input{
+    height: 45px;
+}
+
+form .submit{
+    background: maroon;
+    border: transparent;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+form .submit:hover{
+    background: red;
+    cursor: pointer;
+}
+textarea{
+    width: 100%;
+    }
+
+.popup{
+    width: 400px;
+    background: #333;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: white;
+    display: none;
+    transition: transform 0.4s, top 0.4s;
+
+}
+.showpopup{
+    display: block;
+    
+}
+    
+
+    .popup h2{
+     font-size: 38px;
+     font-weight: 500;
+     margin: 30px 0 10px;   
+    }
+
+    .popup button{
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background: green;
+        color: white;
+        border: 0;
+        outline: none;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    }

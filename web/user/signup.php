@@ -4,8 +4,8 @@ require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
 
 session_start();
 
-if ($_SESSION['user_name']) {
-    if($_GET['movieid']){
+if ($_SESSION['account_id']) {
+    if($_GET['movieid'] != ''){
         header('Location: /web/watch/movie-details.php' . '/?movieid='. $_GET['movieid']);
         die();
     }
@@ -16,6 +16,7 @@ if (isset($_POST['submit'])) {
 
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $address = mysqli_real_escape_string($conn, $_POST['address']);
     $pass = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
 
@@ -32,7 +33,7 @@ if (isset($_POST['submit'])) {
         if ($pass != $cpass) {
             $error[] = 'password not matched!';
         } else {
-            $insert = "INSERT INTO account(email, password, full_name, full_address) VALUES('$email','$pass','$name','NU Laguna')";
+            $insert = "INSERT INTO account(email, password, full_name, full_address) VALUES('$email','$pass','$name','$address')";
             mysqli_query($conn, $insert);
 
             if($_GET['movieid'] != ''){
@@ -45,6 +46,8 @@ if (isset($_POST['submit'])) {
     }
 
 };
+
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -78,6 +81,7 @@ if (isset($_POST['submit'])) {
             ?>
             <input type="text" name="name" required placeholder="name">
             <input type="email" name="email" required placeholder="email">
+            <input type="text" name="address" required placeholder="address">
             <input type="password" name="password" required placeholder="password">
             <input type="password" name="cpassword" required placeholder="confirm password">
             <input type="submit" name="submit" value="sign up here!" class="form-btn">

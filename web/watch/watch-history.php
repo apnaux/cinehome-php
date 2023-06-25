@@ -65,8 +65,9 @@ require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
 $email = '';
 
 session_start();
+unset($_SESSION['message']);
 
-if ($_SESSION['user_name'] == '') {
+if ($_SESSION['account_id'] == '') {
     header('Location: /?nologin=true');
 }
 

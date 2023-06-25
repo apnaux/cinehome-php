@@ -17,8 +17,9 @@ require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
 $email = '';
 
 session_start();
+unset($_SESSION['message']);
 
-if ($_SESSION['user_name'] == '') {
+if ($_SESSION['account_id'] == '') {
     header('Location: /?nologin=true');
 }
 
@@ -30,8 +31,14 @@ if (isset($_GET['logout'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    header('Location: movie-details.php/?movieid=' . $_POST["movie-select"]);
+    header('Location: details.php/?movieid=' . $_POST["movie-select"]);
 }
+
+$select = "SELECT * FROM movie WHERE status='showing'";
+$result = mysqli_query($conn, $select);
+$rows = mysqli_fetch_all($result);
+
+mysqli_close($conn);
 ?>
 
 <body
@@ -54,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"
         class="w-screen bg-gradient-to-b from-transparent from-0% to-black to-20% backdrop-contrast-150 z-10">
         <div class="flex flex-col gap-y-6 scale-95">
-            <button type="submit" value="<?php echo '1'; ?>" name="movie-select"
+            <button type="submit" value="<?php echo $rows[0][0]; ?>" name="movie-select"
                 class="text-left text-white font-instrument h-[720px] w-full relative overflow-clip bg-cyan-900 group transition active:scale-95 rounded-2xl">
                 <div
                     class="flex flex-col justify-center items-end space-y-4 z-30 absolute h-full w-1/2 right-0 bg-gradient-to-l from-black from-20% transition opacity-0 group-hover:opacity-100">
@@ -62,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                         Watch now!
                     </h1>
                     <p class="mx-auto">
-                        Available 'til May 26!
+                        Available 'til <?php echo date_format(date_create($rows[0][6]), 'F d, Y') ?>!
                     </p>
                 </div>
                 <div
@@ -77,20 +84,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             01
                         </h2>
                         <p class="font-bold text-6xl">
-                            Two bros chilling <br>
-                            in the hot tub~
+                            <?php echo $rows[0][1] ?>
                         </p>
                         <p class="font-instrument">
-                            five feet apart 'cause they're not gay
+                            <?php echo $rows[0][2] ?>
                         </p>
                     </div>
                 </div>
-                <img src="/assets/images/mock/two-bros.png" alt="two bros chilling"
+                <img src="<?php echo $rows[0][8] ?>" alt="two bros chilling"
                     class="absolute top-0 w-full h-full object-cover brightness-75 z-10 transition group-hover:brightness-50">
             </button>
 
             <div class="flex flex-row gap-x-6">
-                <button type="submit" value="<?php echo '2'; ?>" name="movie-select"
+                <button type="submit" value="<?php echo $rows[1][0]; ?>" name="movie-select"
                     class="text-left text-white font-instrument h-[720px] w-full relative overflow-clip bg-cyan-900 group transition active:scale-95 rounded-2xl">
                     <div
                         class="p-16 w-full h-full flex flex-col items-start justify-between z-20 relative transition group-hover:scale-90">
@@ -103,19 +109,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                                 02
                             </h2>
                             <p class="font-bold text-6xl">
-                                Two bros chilling <br>
-                                in the hot tub~
+                                <?php echo $rows[1][1] ?>
                             </p>
                             <p class="font-instrument">
-                                five feet apart 'cause they're not gay
+                                Available 'til <?php echo date_format(date_create($rows[1][6]), 'F d, Y') ?>!
                             </p>
                         </div>
                     </div>
-                    <img src="/assets/images/mock/two-bros.png" alt="two bros chilling"
+                    <img src="<?php echo $rows[1][8] ?>" alt="two bros chilling"
                         class="absolute top-0 w-full brightness-75 z-10 transition group-hover:brightness-50">
                 </button>
 
-                <button type="submit" value="<?php echo '3'; ?>" name="movie-select"
+                <button type="submit" value="<?php echo $rows[2][0]; ?>" name="movie-select"
                     class="text-left text-white font-instrument h-[720px] w-full relative overflow-clip bg-cyan-900 group transition active:scale-95 rounded-2xl">
                     <div
                         class="p-16 w-full h-full flex flex-col items-start justify-between z-20 relative transition group-hover:scale-90">
@@ -128,15 +133,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                                 03
                             </h2>
                             <p class="font-bold text-6xl">
-                                Two bros chilling <br>
-                                in the hot tub~
+                                <?php echo $rows[2][1] ?>
                             </p>
                             <p class="font-instrument">
-                                five feet apart 'cause they're not gay
+                                Available 'til <?php echo date_format(date_create($rows[2][6]), 'F d, Y') ?>!
                             </p>
                         </div>
                     </div>
-                    <img src="/assets/images/mock/two-bros.png" alt="two bros chilling"
+                    <img src="<?php echo $rows[2][8] ?>" alt="two bros chilling"
                         class="absolute top-0 w-full brightness-75 z-10 transition group-hover:brightness-50">
                 </button>
             </div>

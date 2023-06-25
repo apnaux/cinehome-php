@@ -4,8 +4,8 @@ require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
 
 session_start();
 
-if ($_SESSION['user_name'] != '') {
-    if ($_GET['movieid']) {
+if ($_SESSION['account_id'] != '') {
+    if ($_GET['movieid'] != '') {
         header('Location: /web/watch/movie-details.php' . '/?movieid=' . $_GET['movieid']);
         die();
     }
@@ -26,9 +26,9 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($result) > 0) {
 
         $row = mysqli_fetch_array($result);
-        $_SESSION['user_name'] = $row['full_name'];
+        $_SESSION['account_id'] = $row['id'];
 
-        if ($_GET['movieid']) {
+        if ($_GET['movieid'] != '') {
             header('Location: ' . $_SERVER["DOCUMENT_ROOT"] . '/web/watch/home.php' . '/?movieid=' . $_GET['movieid']);
             die();
         }
@@ -40,8 +40,9 @@ if (isset($_POST['submit'])) {
         $error[] = 'incorrect email or password!';
     }
 
-}
-;
+};
+
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>

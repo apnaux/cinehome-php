@@ -59,12 +59,12 @@
                     player.src = data["file_location"];
                 }
             };
-            xmlhttp.open("GET", "getmovie.php?movieid=" + movie, true);
+            xmlhttp.open("GET", "scripts/getmovie.php?movieid=" + movie, true);
             xmlhttp.send();
         };
 
         function goBack(){
-            window.location.href = "movie-details.php?movieid=" + movie;
+            window.location.href = "details.php?movieid=" + movie;
         }
 
         const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

@@ -106,7 +106,8 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <form class="container" action="payment.php" method="GET">
+    <input type="hidden" name="movieid" value="<?php echo $_GET['movieid'] ?>"> 
     <div class="row">
       <div class="paymentCont">
         <div class="headingWrap">
@@ -119,35 +120,35 @@
                 <div class="method">
                   <img src="https://cdn.freebiesupply.com/logos/large/2x/visa-logo-png-transparent.png" alt="Visa Card Logo">
                 </div>
-                <input type="radio" name="options" checked> 
+                <input type="radio" name="options" value="visa" checked> 
               </label>
               <label class="btn paymentMethod">
                 <div class="method">
                   <img src="https://ww1.freelogovectors.net/wp-content/uploads/2023/05/gcash-logo-freelogovectors.net_.png?lossy=1&w=2560&ssl=1" alt="Gcash">
                 </div>
-                <input type="radio" name="options"> 
+                <input type="radio" name="options" value="gcash"> 
               </label>
               <label class="btn paymentMethod">
                 <div class="method">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/PayMaya_Logo.png/1200px-PayMaya_Logo.png?20190821193452" alt="Paymaya">
                 </div>
-                <input type="radio" name="options">
+                <input type="radio" name="options" value="maya">
               </label>
               <label class="btn paymentMethod">
                 <div class="method">
                   <img src="https://www.seekpng.com/png/full/133-1339702_online-banking-icon-png.png" alt="Online Banking">
                 </div>
-                <input type="radio" name="options">
+                <input type="radio" name="options" value="bank">
               </label>
             </div>
           </div>
         </div>
         <div class="footerNavWrap clearfix">
           <button type="button" class="btn btn-success pull-left btn-fyi" onclick="window.location.href = '/web/watch/home.php';"><span class="glyphicon glyphicon-chevron-left"></span> RETURN</button>
-          <button type="button" class="btn btn-success pull-right btn-fyi" onclick="window.location.href = 'payment.php';">PROCEED<span class="glyphicon glyphicon-chevron-right"></span></button>
+          <button type="submit" class="btn btn-success pull-right btn-fyi">PROCEED<span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
       </div>
     </div>
-  </div>
+  </form>
 </body>
 </html>

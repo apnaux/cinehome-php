@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support</title>
+    <link rel="stylesheet" href="cs-style.css">
+
+</head>
+<body>
+    <div class="contact-form">
+        <h1>CONTACT US</h1>
+        <h2>We are happy to give you the best of our customer service! And with that, we would love to hear more from you! </h2>
+    </div>
+    <div class="contact-us">
+        <form name="customerinput" id="forms">
+           <input     name="name"     type="text"   class="form-control" placeholder="Name"         > <br>
+           <input     name="no"      type="number" class="form-control" placeholder="Mobile number" required> <br>
+           <input     name="email"    type="email"  class="form-control" placeholder="Email"         required> <br>
+           <input     name="subj"     type="text"   class="form-control" placeholder=" Subject"      required> <br>
+           <textarea  name="msg"      type="text"   class="form-control" placeholder="Drop message"  required cols="" rows="10"></textarea> <br>
+
+           <input type="submit" class="form-control submit"  value="Submit">
+           
+       </form>
+           <div class="popup" id="popupid">
+                <h2>Thank You!</h2>
+                <p>A message has been sent to your email provided.</p>
+                <button type="btn btn-success btn-block" onclick="closePopup()" action="/action_page.php">Confirm</button>
+            </div>
+    </div>
+
+    <script>
+        let popup   =   document.getElementById('popupid');
+        let form = document.getElementById("forms");
+        
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            if(formData.get("no") != "" && formData.get("email") != "" && formData.get("subject") != "" && formData.get("message") != ""){
+                openPopup();
+            }
+        });
+
+        function openPopup(){
+            popup.classList.add("showpopup");
+        }
+        function closePopup(){
+           popup.classList.remove("showpopup");
+        } 
+            
+      
+        
+       
+    </script>
+    
+    
+</body>
+</html>
+

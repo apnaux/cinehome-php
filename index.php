@@ -11,6 +11,20 @@
     <title>cinehome: The Home Theatre Experience</title>
 </head>
 
+<?php
+
+require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
+
+session_start();
+unset($_SESSION['message']);
+
+$select = "SELECT * FROM movie WHERE status='showing'";
+$result = mysqli_query($conn, $select);
+$rows = mysqli_fetch_all($result);
+
+mysqli_close($conn);
+?>
+
 <body class="bg-black flex flex-col">
     <nav
         class="fixed flex flex-row justify-between items-center px-24 py-12 h-20 w-full bg-gradient-to-b from-black text-white from-20% z-50">
@@ -20,7 +34,7 @@
         <div class="flex flex-row space-x-12 font-instrument">
             <a href="#features">Features</a>
             <a href="#now-showing">Now Showing</a>
-            <?php if ($_SESSION['user_name'] == '') { ?>
+            <?php if ($_SESSION['account_id'] == '') { ?>
                 <a href="/web/user/login.php" class="relative">
                     Log in / Sign up
                     <?php if ($_GET['nologin'] == true) { ?>
@@ -46,7 +60,7 @@
                 No need to worry about not being able to watch movies from the cinema. <br>
                 Watch the same movies being shown there right here, and right now!
             </p>
-            <?php if ($_SESSION['user_name'] != '') { ?>
+            <?php if ($_SESSION['account_id'] != '') { ?>
                 <button type="button" onclick="  window.location.href = '/web/watch/home.php';"
                     class="py-2 px-3 bg-red-700 rounded-lg border border-red-300 font-instrument text-white font-medium transition hover:scale-110 hover:border-red-700 active:scale-95 active:bg-red-900">
                     Go to the App
@@ -124,7 +138,7 @@
     <!-- Now Showing -->
     <div class="h-auto w-full bg-gradient-to-b from-black via-red-950 to-black" id="now-showing">
         <div class="flex flex-col gap-y-6 scale-95">
-            <button type="button" onclick="window.location.href = '/web/user/signup.php/?movieid=1';"
+            <button type="button" onclick="goToMovie(this)" value="<?php echo $rows[0][0] ?>"
                 class="text-left text-white font-instrument h-[720px] w-full relative overflow-clip bg-red-950 group transition active:scale-95 rounded-2xl">
                 <div
                     class="flex flex-col justify-center items-end space-y-4 z-30 absolute h-full w-1/2 right-0 bg-gradient-to-l from-black from-20% transition opacity-0 group-hover:opacity-100">
@@ -132,7 +146,7 @@
                         Watch now!
                     </h1>
                     <p class="mx-auto">
-                        Available 'til May 26!
+                        Available 'til <?php echo date_format(date_create($rows[0][6]), 'F d, Y') ?>!
                     </p>
                 </div>
                 <div
@@ -147,20 +161,19 @@
                             01
                         </h2>
                         <p class="font-bold text-6xl">
-                            Two bros chilling <br>
-                            in the hot tub~
+                            <?php echo $rows[0][1] ?>
                         </p>
                         <p class="font-instrument">
-                            five feet apart 'cause they're not gay
+                            <?php echo $rows[0][2] ?>
                         </p>
                     </div>
                 </div>
-                <img src="/assets/images/mock/two-bros.png" alt="two bros chilling"
+                <img src="<?php echo $rows[0][8] ?>" alt="two bros chilling"
                     class="absolute top-0 w-full h-full object-cover brightness-75 z-10 transition group-hover:brightness-50">
             </button>
 
             <div class="flex flex-row gap-x-6">
-                <button type="button" onclick="window.location.href = '/web/user/signup.php/?movieid=2';"
+                <button type="button" onclick="goToMovie(this)" value="<?php echo $rows[1][0] ?>"
                     class="text-left text-white font-instrument h-[720px] w-full relative overflow-clip bg-red-950 group transition active:scale-95 rounded-2xl">
                     <div
                         class="p-16 w-full h-full flex flex-col items-start justify-between z-20 relative transition group-hover:scale-90">
@@ -173,19 +186,18 @@
                                 02
                             </h2>
                             <p class="font-bold text-6xl">
-                                Two bros chilling <br>
-                                in the hot tub~
+                                <?php echo $rows[1][1] ?>
                             </p>
                             <p class="font-instrument">
-                                five feet apart 'cause they're not gay
+                                Available 'til <?php echo date_format(date_create($rows[1][6]), 'F d, Y') ?>!
                             </p>
                         </div>
                     </div>
-                    <img src="/assets/images/mock/two-bros.png" alt="two bros chilling"
+                    <img src="<?php echo $rows[1][8] ?>" alt="two bros chilling"
                         class="absolute top-0 w-full brightness-75 z-10 transition group-hover:brightness-50">
                 </button>
 
-                <button type="button" onclick="window.location.href = '/web/user/signup.php/?movieid=3';"
+                <button type="button" onclick="goToMovie(this)" value="<?php echo $rows[2][0] ?>"
                     class="text-left text-white font-instrument h-[720px] w-full relative overflow-clip bg-red-950 group transition active:scale-95 rounded-2xl">
                     <div
                         class="p-16 w-full h-full flex flex-col items-start justify-between z-20 relative transition group-hover:scale-90">
@@ -198,15 +210,14 @@
                                 03
                             </h2>
                             <p class="font-bold text-6xl">
-                                Two bros chilling <br>
-                                in the hot tub~
+                                <?php echo $rows[2][1] ?>
                             </p>
                             <p class="font-instrument">
-                                five feet apart 'cause they're not gay
+                                Available 'til <?php echo date_format(date_create($rows[2][6]), 'F d, Y') ?>!
                             </p>
                         </div>
                     </div>
-                    <img src="/assets/images/mock/two-bros.png" alt="two bros chilling"
+                    <img src="<?php echo $rows[2][8] ?>" alt="two bros chilling"
                         class="absolute top-0 w-full brightness-75 z-10 transition group-hover:brightness-50">
                 </button>
             </div>
@@ -240,12 +251,15 @@
             </div>
         </div>
 
-        <div class="flex flex-col justify-between items-end h-full">
+        <div class="flex flex-col justify-between items-end h-full text-white">
             <!-- Payment Methods -->
         </div>
     </footer>
 
     <script>
+        function goToMovie(e){
+            window.location.href = '/web/user/signup.php/?movieid=' + e.value;
+        }
         eva.replace({
             fill: '#FFFFFF',
         });
