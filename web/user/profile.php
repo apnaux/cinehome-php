@@ -31,6 +31,7 @@ $result = mysqli_query($conn, $select);
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_array($result);
     $email = $row['email'];
+    $image = $row['profile_image'];
     $name = $row['full_name'];
     $address = $row['full_address'];
     $joined = date_format(date_create($row['created_at']), 'F d, Y');
@@ -82,7 +83,19 @@ mysqli_close($conn);
 ?>
 
 <body
-    class="flex flex-col bg-gradient-to-r from-blue-300 via-violet-400 to-red-300 select-none text-white font-instrument relative">
+    class="flex flex-col bg-gradient-to-r from-blue-300 via-violet-400 to-red-300 select-none text-white font-instrument">
+    
+    <dialog class="changeImage backdrop:backdrop-blur-sm rounded-2xl border-none bg-transparent text-white backdrop-contrast-0">
+        <form action="scripts/upload.php" method="post" enctype="multipart/form-data" class="flex flex-col gap-y-6 items-start h-full w-full p-4">
+            <h1 class="font-bold text-2xl">Change your Profile Image</h1>
+            <input type="file" name="image" id="image">
+            <div class="flex flex-row gap-x-4">
+                <button value="cancel" formmethod="dialog" class="py-2 px-3 backdrop-blur-2xl rounded-lg border font-medium transition hover:scale-110 active:scale-95">Cancel</button>
+                <button type="submit" name="submit" value="submit" class="py-2 px-3 backdrop-blur-2xl rounded-lg border font-medium transition hover:scale-110 active:scale-95">Submit</button>
+            </div>
+        </form>
+    </dialog>
+
     <img src="/assets/images/mock/profile_header.jpg" alt="bg-image" class="object-cover z-0 fixed">
     <nav class="fixed flex flex-row justify-between items-center px-24 py-12 h-20 w-full z-50 backdrop-blur-sm">
         <a href="#" class="text-5xl font-bold font-solitus active:text-current">
@@ -99,8 +112,9 @@ mysqli_close($conn);
     <div
         class="w-screen flex flex-col justify-center items-center py-12 px-72 bg-gradient-to-b from-transparent to-black backdrop-contrast-150 gap-y-8 z-10">
         <div
-            class="backdrop-blur-2xl backdrop-contrast-50 rounded-3xl w-full h-[348px] flex flex-row justify-start items-center gap-x-12 overflow-hidden">
-            <img src="/assets/images/mock/user/user.jpg" alt="a person" class="object-cover h-full contrast-125">
+            class="backdrop-blur-2xl backdrop-contrast-50 rounded-3xl w-full h-[348px] flex flex-row justify-start items-center gap-x-12 overflow-hidden relative">
+            <button type="button" onclick="togglePopup()" class="absolute bottom-0 right-0 z-10 m-12 py-2 px-3 backdrop-blur-2xl rounded-lg border font-medium transition hover:scale-110 active:scale-95">Change Profile Image</button>
+            <img src="<?php echo $image ?>" alt="a person" class="object-cover h-full contrast-125">
             <div class="flex flex-col items-start justify-between h-full py-12">
                 <div class="flex flex-col gap-y-2">
                     <h1 class="font-bold text-4xl">
@@ -263,6 +277,11 @@ mysqli_close($conn);
     </footer>
 
     <script>
+        function togglePopup(){
+            const modal = document.querySelector(".changeImage");
+            modal.showModal();
+        }
+
         eva.replace({
             fill: '#FFFFFF',
         });
