@@ -55,8 +55,8 @@
                 if (this.readyState == 4 && this.status == 200) {
                     data = JSON.parse(this.responseText);
                     let complete_d = new Date(data["completion_date"]);
-                    let basis_d = new Date('January 01, 2020');
-                    if (data["elapsed_time"] == null || complete_d.toDateString() != basis_d.toDateString()) {
+                    let basis_d = new Date('2020-01-01');
+                    if (data["elapsed_time"] == null || complete_d.getTime() != basis_d.getTime()) {
                         whyAreYouHere();
                     } else {
                         player.src = data["file_location"];
@@ -73,9 +73,9 @@
         }
 
         player.onloadedmetadata = () => {
-            player.currentTime = data["elapsed_time"];
-            alert(data["elapsed_time"]);
+            player.currentTime = data["elapsed_time"].split(':').reduce((acc, time) => (60 * acc) + +time);
             player.volume = 0.5;
+            player.play();
         }
 
         player.oncanplay = () => {
@@ -109,19 +109,6 @@
             }
         }
 
-        // FOR SAVING CURRENT TIME
-        let seconds = 0;
-        setInterval(() => {
-            if (!player.paused) {
-                const param = new URLSearchParams(new URL(window.location.href).search);
-                param.append('currenttime', player.currentTime);
-
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("POST", "scripts/saveduration.php", true);
-                xmlhttp.send(param);
-            }
-        }, 1000);
-
         player.onended = () => {
             // Show end screen here
             const param = new URLSearchParams(new URL(window.location.href).search);
@@ -145,6 +132,15 @@
             const pause = document.getElementById("togglePause");
             play.classList.add("hidden");
             pause.classList.remove("hidden");
+
+            setInterval(() => {
+                const param = new URLSearchParams(new URL(window.location.href).search);
+                param.append('currenttime', player.currentTime);
+
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("POST", "scripts/saveduration.php", true);
+                xmlhttp.send(param);
+            }, 1000);
         }
 
         player.onpause = () => {

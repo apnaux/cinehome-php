@@ -14,7 +14,7 @@ $select = "SELECT * FROM watch_history WHERE movie_id = ". $_POST["movieid"] ." 
 $result = mysqli_query($conn, $select);
 $row = mysqli_fetch_array($result);
 
-$details['elapsed_time'] = strtotime('1970-01-01'. $row['elapsed_time']);
+$details['elapsed_time'] = $row['elapsed_time'];
 $details['completion_date'] = $row['completion_date'];
 
 header('Accept-Ranges: bytes');
