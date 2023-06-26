@@ -60,8 +60,12 @@ mysqli_close($conn);
                 <p>Available until <?php echo date_format(date_create($movie_details['available_until']), 'F d, Y') ?>!</p>
             </div>
             <?php if(empty($watch_history)) { ?>
-                <button type="button" onclick="payforMovie()" class="flex flex-row justify-center items-center w-64 h-16 bg-red-700 rounded-lg border border-red-300 font-instrument text-white font-medium transition hover:scale-110 hover:border-red-700 active:scale-95 active:bg-red-900">
+                <button type="button" onclick="payforMovie()" class="flex flex-row justify-center items-center w-64 h-16 bg-red-700 rounded-lg font-instrument text-white font-medium transition hover:scale-110 hover:border-red-700 active:scale-95 active:bg-red-900">
                     Pay now!
+                </button>
+            <?php } elseif($watch_history['completion_date'] != '2020-01-01') {?>
+                <button type="button" disabled class="disabled: flex flex-row justify-center items-center w-64 h-16 bg-gray-800 rounded-lg font-instrument text-white font-medium">
+                    Already watched.
                 </button>
             <?php } else { ?>
                 <button type="button" onclick="watchMovie()" class="flex flex-row justify-center items-center w-64 h-16 bg-red-700 rounded-lg border border-red-300 font-instrument text-white font-medium transition hover:scale-110 hover:border-red-700 active:scale-95 active:bg-red-900">
