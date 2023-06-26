@@ -12,14 +12,29 @@
 </head>
 
 <?php
-require($_SERVER["DOCUMENT_ROOT"]."/connection.php");
-
-$email = '';
+require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
 
 session_start();
 
-if($_SESSION['user_name'] == ''){
+if ($_SESSION['account_id'] == '') {
     header('Location: /?nologin=true');
+}
+
+$name = '';
+$address = '';
+$email = '';
+$row;
+
+$select = "SELECT * FROM account WHERE id =" . $_SESSION['account_id'];
+$result = mysqli_query($conn, $select);
+
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_array($result);
+    $email = $row['email'];
+    $image = $row['profile_image'];
+    $name = $row['full_name'];
+    $address = $row['full_address'];
+    $joined = date_format(date_create($row['created_at']), 'F d, Y');
 }
 
 if (isset($_GET['logout'])) {
@@ -29,12 +44,58 @@ if (isset($_GET['logout'])) {
     header('Location: /');
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    $email = $_POST["email"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (md5($_POST['curpassword']) == $row['password'] || md5($_POST['password']) == $row['password']) {
+        if ($_POST["submitForm"] == 'cred') {
+            if ($_POST["email"] != '') {
+                $email = $_POST["email"];
+            }
+
+            if ($_POST["full_name"] != '') {
+                $name = $_POST["full_name"];
+            }
+
+            if ($_POST["address"] != '') {
+                $address = $_POST["address"];
+            }
+
+            $select = "update account set email='" . $email . "', full_name='" . $name . "', full_address='" . $address . "', updated_at=CURRENT_TIMESTAMP() where id=" . $_SESSION['account_id'];
+            $result = mysqli_query($conn, $select);
+            $_SESSION['message'] = 'Successfully changed your credentials';
+        } elseif ($_POST["submitForm"] == 'pass') {
+            if($_POST["confnewpass"] == $_POST['newpassword']){
+                $select = "update account set password='" . md5($_POST['newpassword']) . "', updated_at=CURRENT_TIMESTAMP() where id=" . $_SESSION['account_id'];
+                $result = mysqli_query($conn, $select);
+                $_SESSION['message'] = 'Successfully changed your password';
+            } else {
+                $_SESSION['message'] = 'The passwords don\'t match.';
+            }
+        }
+    } else {
+        $_SESSION['message'] = 'Your password is incorrect';
+    }
+
+    header('Location: /web/user/profile.php');
 }
+
+mysqli_close($conn);
+
 ?>
 
-<body class="flex flex-col bg-gradient-to-r from-blue-300 via-violet-400 to-red-300 select-none text-white font-instrument relative">
+<body
+    class="flex flex-col bg-gradient-to-r from-blue-300 via-violet-400 to-red-300 select-none text-white font-instrument">
+    
+    <dialog class="changeImage backdrop:backdrop-blur-sm rounded-2xl border-none bg-transparent text-white backdrop-contrast-0">
+        <form action="scripts/upload.php" method="post" enctype="multipart/form-data" class="flex flex-col gap-y-6 items-start h-full w-full p-4">
+            <h1 class="font-bold text-2xl">Change your Profile Image</h1>
+            <input type="file" name="image" id="image">
+            <div class="flex flex-row gap-x-4">
+                <button value="cancel" formmethod="dialog" class="py-2 px-3 backdrop-blur-2xl rounded-lg border font-medium transition hover:scale-110 active:scale-95">Cancel</button>
+                <button type="submit" name="submit" value="submit" class="py-2 px-3 backdrop-blur-2xl rounded-lg border font-medium transition hover:scale-110 active:scale-95">Submit</button>
+            </div>
+        </form>
+    </dialog>
+
     <img src="/assets/images/mock/profile_header.jpg" alt="bg-image" class="object-cover z-0 fixed">
     <nav class="fixed flex flex-row justify-between items-center px-24 py-12 h-20 w-full z-50 backdrop-blur-sm">
         <a href="#" class="text-5xl font-bold font-solitus active:text-current">
@@ -47,19 +108,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             <a href="?logout=true">Log out</a>
         </div>
     </nav>
-
+    <div class="h-20 py-12 backdrop-contrast-150"></div>
     <div
-        class="w-screen min-h-screen flex flex-col justify-center items-center py-12 px-72 bg-gradient-to-b from-transparent to-black backdrop-contrast-150 gap-y-8 z-10">
+        class="w-screen flex flex-col justify-center items-center py-12 px-72 bg-gradient-to-b from-transparent to-black backdrop-contrast-150 gap-y-8 z-10">
         <div
-            class="backdrop-blur-2xl backdrop-contrast-50 rounded-3xl w-full h-[348px] flex flex-row justify-start items-center gap-x-12 overflow-hidden">
-            <img src="/assets/images/mock/user/user.jpg" alt="a person" class="object-cover h-full contrast-125">
+            class="backdrop-blur-2xl backdrop-contrast-50 rounded-3xl w-full h-[348px] flex flex-row justify-start items-center gap-x-12 overflow-hidden relative">
+            <button type="button" onclick="togglePopup()" class="absolute bottom-0 right-0 z-10 m-12 py-2 px-3 backdrop-blur-2xl rounded-lg border font-medium transition hover:scale-110 active:scale-95">Change Profile Image</button>
+            <img src="<?php echo $image ?>" alt="a person" class="object-cover h-full contrast-125">
             <div class="flex flex-col items-start justify-between h-full py-12">
                 <div class="flex flex-col gap-y-2">
                     <h1 class="font-bold text-4xl">
-                        <?php echo $_SESSION["user_name"] ?>
+                        <?php echo $name ?>
                     </h1>
                     <p>
-                        2065 North Social Way, Santa Fe, New Mexico, 35440
+                        <?php echo $address ?>
                     </p>
                 </div>
 
@@ -68,37 +130,89 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                         Date Joined
                     </p>
                     <h1 class="font-bold text-2xl">
-                        December 31, 2014
+                        <?php echo $joined ?>
                     </h1>
                 </div>
             </div>
         </div>
 
+        <?php if ($_SESSION['message'] != '') { ?>
+            <div class="backdrop-blur-2xl backdrop-contrast-50 w-full rounded-3xl py-4 px-12 flex flex-row justify-start items-center">
+                <p><?php echo $_SESSION['message']?></p>
+            </div>
+
+        <?php } ?>
+
         <div class="w-full flex flex-col justify-start items-start gap-y-4">
             <h1 class="font-bold text-2xl">
-                Modify user credentials:
+                Modify your credentials:
             </h1>
 
             <div class="w-full h-[1px] bg-white"></div>
 
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="flex flex-col justify-start items-start gap-y-4">
-                <label for="username"
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
+                class="flex flex-col justify-start items-start gap-y-4">
+                <label for="email"
                     class="flex flex-row backdrop-blur-2xl backdrop-contrast-50 rounded-xl h-12 w-96 overflow-hidden">
                     <div class="px-4 flex flex-col items-center justify-center">
                         <i data-eva="email-outline" class="w-8"></i>
                     </div>
 
-                    <input type="text" name="username" id="username" placeholder="New Username"
+                    <input type="text" name="email" id="email" placeholder="Edit e-mail"
                         class="bg-transparent h-full focus:outline-none flex-grow">
                 </label>
 
+                <label for="full_name"
+                    class="flex flex-row backdrop-blur-2xl backdrop-contrast-50 rounded-xl h-12 w-96 overflow-hidden">
+                    <div class="px-4 flex flex-col items-center justify-center">
+                        <i data-eva="person-outline" class="w-8"></i>
+                    </div>
+
+                    <input type="text" name="full_name" id="full_name" placeholder="Edit name"
+                        class="bg-transparent h-full focus:outline-none flex-grow">
+                </label>
+
+                <label for="address"
+                    class="flex flex-row backdrop-blur-2xl backdrop-contrast-50 rounded-xl h-12 w-96 overflow-hidden">
+                    <div class="px-4 flex flex-col items-center justify-center">
+                        <i data-eva="home-outline" class="w-8"></i>
+                    </div>
+
+                    <input type="text" name="address" id="address" placeholder="Edit address"
+                        class="bg-transparent h-full focus:outline-none flex-grow">
+                </label>
+
+                <label for="password"
+                    class="flex flex-row backdrop-blur-2xl backdrop-contrast-50 rounded-xl h-12 w-96 overflow-hidden">
+                    <div class="px-4 flex flex-col items-center justify-center">
+                        <i data-eva="unlock-outline" class="w-8"></i>
+                    </div>
+
+                    <input type="password" name="password" id="password" placeholder="Current Password" required
+                        class="bg-transparent h-full focus:outline-none flex-grow">
+                </label>
+
+                <button type="submit" value="cred" name="submitForm"
+                    class="py-2 px-3 backdrop-blur-2xl backdrop-contrast-50 rounded-lg border font-medium transition hover:scale-110 active:scale-95 active:backdrop-contrast-0">
+                    Change your credentials
+                </button>
+            </form>
+
+            <h1 class="font-bold text-2xl">
+                Change your password:
+            </h1>
+
+            <div class="w-full h-[1px] bg-white"></div>
+
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
+                class="flex flex-col justify-start items-start gap-y-4">
                 <label for="curpassword"
                     class="flex flex-row backdrop-blur-2xl backdrop-contrast-50 rounded-xl h-12 w-96 overflow-hidden">
                     <div class="px-4 flex flex-col items-center justify-center">
                         <i data-eva="unlock-outline" class="w-8"></i>
                     </div>
 
-                    <input type="password" name="curpassword" id="curpassword" placeholder="Old Password"
+                    <input type="password" name="curpassword" id="curpassword" placeholder="Old Password" required
                         class="bg-transparent h-full focus:outline-none flex-grow">
                 </label>
 
@@ -108,13 +222,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                         <i data-eva="lock-outline" class="w-8"></i>
                     </div>
 
-                    <input type="password" name="newpassword" id="newpassword" placeholder="New Password"
+                    <input type="password" name="newpassword" id="newpassword" placeholder="New Password" required
                         class="bg-transparent h-full focus:outline-none flex-grow">
                 </label>
 
-                <button type="submit"
+                <label for="confnewpass"
+                    class="flex flex-row backdrop-blur-2xl backdrop-contrast-50 rounded-xl h-12 w-96 overflow-hidden">
+                    <div class="px-4 flex flex-col items-center justify-center">
+                        <i data-eva="lock-outline" class="w-8"></i>
+                    </div>
+
+                    <input type="password" name="confnewpass" id="confnewpass" placeholder="Confirm New Password" required
+                        class="bg-transparent h-full focus:outline-none flex-grow">
+                </label>
+
+                <button type="submit" value="pass" name="submitForm"
                     class="py-2 px-3 backdrop-blur-2xl backdrop-contrast-50 rounded-lg border font-medium transition hover:scale-110 active:scale-95 active:backdrop-contrast-0">
-                    Change Credentials
+                    Change your password
                 </button>
             </form>
         </div>
@@ -153,6 +277,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     </footer>
 
     <script>
+        function togglePopup(){
+            const modal = document.querySelector(".changeImage");
+            modal.showModal();
+        }
+
         eva.replace({
             fill: '#FFFFFF',
         });

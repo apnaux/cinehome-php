@@ -37,14 +37,12 @@
 
     <div id="ended"
         class="absolute z-40 top-0 h-screen w-screen backdrop-blur-sm backdrop-contrast-50 flex-col justify-center items-center gap-y-2 transition-opacity hidden opacity-0">
-         <h1 class="text-2xl font-bold">Video has ended.</h1>
-         <a onclick="goBack()" class="cursor-pointer">Go back.</a>
+        <h1 class="message text-2xl font-bold">Video has ended.</h1>
+        <a onclick="goBack()" class="cursor-pointer">Go back.</a>
     </div>
 
     <script>
-        let player = document.getElementById("videoplay");
-
-        let paused = true;
+        const player = document.getElementById("videoplay");
         let movie = 0;
         let data = {};
 
@@ -56,30 +54,37 @@
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     data = JSON.parse(this.responseText);
-                    player.src = data["file_location"];
+                    let complete_d = new Date(data["completion_date"]);
+                    let basis_d = new Date('2020-01-01');
+                    if (data["elapsed_time"] == null || complete_d.getTime() != basis_d.getTime()) {
+                        whyAreYouHere();
+                    } else {
+                        player.src = data["file_location"];
+                    }
                 }
             };
-            xmlhttp.open("GET", "getmovie.php?movieid=" + movie, true);
-            xmlhttp.send();
+            xmlhttp.open("POST", "scripts/getmovie.php", true);
+            xmlhttp.getResponseHeader("Accept-Ranges");
+            xmlhttp.send(param);
         };
 
-        function goBack(){
-            window.location.href = "movie-details.php?movieid=" + movie;
+        function goBack() {
+            window.location.href = "details.php?movieid=" + movie;
         }
 
-        const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+        player.onloadedmetadata = () => {
+            player.currentTime = data["elapsed_time"].split(':').reduce((acc, time) => (60 * acc) + +time);
+            player.volume = 0.5;
+            player.play();
+        }
 
-        let ready = false;
-        player.onloadeddata = async () => {
+        player.oncanplay = () => {
             const title = document.getElementById("title");
             const loading = document.getElementById("loading");
-            ready = true;
-            player.currentTime = 200;
-            player.volume = 0.5;
+
             title.innerText = data["movie_title"];
             loading.classList.add("opacity-0");
             loading.classList.remove("opacity-100");
-            await sleep(500);
             loading.classList.add("hidden");
             loading.classList.remove("flex");
         }
@@ -104,28 +109,46 @@
             }
         }
 
-        // FOR SAVING CURRENT TIME
-        // let seconds = 0;
-        // let interval = setInterval(() => {
-        //     if (!paused) {
-        //         seconds = seconds + 1;
-        //     }
-        // }, 1000);
-
-        player.onended = async () => {
+        player.onended = () => {
             // Show end screen here
+            const param = new URLSearchParams(new URL(window.location.href).search);
+            param.append('currenttime', player.currentTime);
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "scripts/complete.php", true);
+            xmlhttp.send(param);
+
             const ended = document.querySelector("#ended");
 
             ended.classList.remove('hidden');
             ended.classList.add('flex');
 
-            await sleep(100);
-
             ended.classList.remove('opacity-0');
-            ended.classList.remove('opacity-100');
+            ended.classList.add('opacity-100');
+        }
+
+        player.onplay = () => {
+            const play = document.getElementById("togglePlay");
+            const pause = document.getElementById("togglePause");
+            play.classList.add("hidden");
+            pause.classList.remove("hidden");
+
+            setInterval(() => {
+                const param = new URLSearchParams(new URL(window.location.href).search);
+                param.append('currenttime', player.currentTime);
+
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("POST", "scripts/saveduration.php", true);
+                xmlhttp.send(param);
+            }, 1000);
         }
 
         player.onpause = () => {
+            const play = document.getElementById("togglePlay");
+            const pause = document.getElementById("togglePause");
+            play.classList.remove("hidden");
+            pause.classList.add("hidden");
+
             document.body.style.cursor = 'auto';
             document.querySelectorAll("#controls").forEach(el => {
                 if (el.classList.contains('opacity-0')) {
@@ -139,20 +162,33 @@
             const play = document.getElementById("togglePlay");
             const pause = document.getElementById("togglePause");
 
-            if (ready) {
-                if (player.paused) {
-                    player.play();
-                    play.classList.add("hidden");
-                    pause.classList.remove("hidden");
-                } else {
-                    player.pause();
-                    play.classList.remove("hidden");
-                    pause.classList.add("hidden");
-                }
-                paused = player.paused;
-            }
+            if (player.paused) {
+                player.play();
 
+            } else {
+                player.pause();
+            }
             return true;
+        }
+
+        function whyAreYouHere() {
+            // why are you here?
+            player.pause();
+            const ended = document.querySelector("#ended");
+            ended.classList.remove('hidden');
+            ended.classList.add('flex');
+
+            document.querySelectorAll("#controls").forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            player.classList.add('hidden');
+
+            const message = ended.querySelector(".message");
+            message.innerHTML = "Why are you here?";
+
+            ended.classList.remove('opacity-0');
+            ended.classList.add('opacity-100');
         }
 
         eva.replace({
