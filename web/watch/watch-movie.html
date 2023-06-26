@@ -74,8 +74,8 @@
 
         player.onloadedmetadata = () => {
             player.currentTime = data["elapsed_time"];
+            alert(data["elapsed_time"]);
             player.volume = 0.5;
-            player.play();
         }
 
         player.oncanplay = () => {
