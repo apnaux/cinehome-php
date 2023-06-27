@@ -79,6 +79,7 @@ $values = mysqli_fetch_all($result);
             <a href="/web/watch/home.php">Home</a>
             <p class="font-bold">Watch History</p>
             <a href="/web/user/profile.php">Your Profile</a>
+            <a href="/web/user/customer-service.html?accessedfrom=watch-history">Contact us</a>
             <a href="?logout=true">Log out</a>
         </div>
     </nav>
@@ -110,7 +111,7 @@ $values = mysqli_fetch_all($result);
         <?php } ?>
     </div>
 
-    <div id="details" class="modal w-screen h-screen hidden flex-col justify-center items-center">
+    <div id="details" class="modal w-screen h-screen hidden flex-col justify-center items-center backdrop-blur-sm">
         <div class="w-1/2 h-[576px] bg-black rounded-3xl relative">
             <span class="close m-8 absolute right-0" onclick="closeDetails()">&times;</span>
             <div class="m-12 flex flex-col gap-x-2">
@@ -149,7 +150,7 @@ $values = mysqli_fetch_all($result);
             modal.querySelector(".elapsed").innerHTML = elapsed_time;
             modal.querySelector(".runtime").innerHTML = duration;
             modal.querySelector(".purchase").innerHTML = purchase_date;
-            if(Date(completed) == Date('January 01, 2020') ){
+            if(Date(completed) == Date('2020-01-01') ){
                 modal.querySelector(".complete-span").classList.add('hidden');
             } else {
                 modal.querySelector(".complete").innerHTML = completed;

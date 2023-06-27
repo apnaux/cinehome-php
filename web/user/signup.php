@@ -37,11 +37,10 @@ if (isset($_POST['submit'])) {
             mysqli_query($conn, $insert);
 
             if($_GET['movieid'] != ''){
-                header('Location: login.php' . '/?movieid='. $_GET['movieid']);
-                die();
+                header('Location: /web/user/login.php' . '/?movieid='. $_GET['movieid']);
             }
 
-            header('location: login.php');
+            header('location: /web/user/login.php');
         }
     }
 

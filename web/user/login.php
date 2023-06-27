@@ -4,10 +4,9 @@ require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
 
 session_start();
 
-if ($_SESSION['account_id'] != '') {
+if (isset($_SESSION['account_id'])) {
     if ($_GET['movieid'] != '') {
-        header('Location: /web/watch/movie-details.php' . '/?movieid=' . $_GET['movieid']);
-        die();
+        header('Location: /web/watch/details.php' . '/?movieid=' . $_GET['movieid']);
     }
     header('Location: /web/watch/home.php');
 }
@@ -28,9 +27,8 @@ if (isset($_POST['submit'])) {
         $row = mysqli_fetch_array($result);
         $_SESSION['account_id'] = $row['id'];
 
-        if ($_GET['movieid'] != '') {
-            header('Location: ' . $_SERVER["DOCUMENT_ROOT"] . '/web/watch/home.php' . '/?movieid=' . $_GET['movieid']);
-            die();
+        if (isset($_GET['movieid'])) {
+            header('Location: ' . $_SERVER["DOCUMENT_ROOT"] . '/web/watch/details.php' . '/?movieid=' . $_GET['movieid']);
         }
 
         header('location: /web/watch/home.php');

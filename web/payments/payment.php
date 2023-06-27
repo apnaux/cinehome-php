@@ -96,10 +96,14 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/connection.php");
 session_start();
 
+$isCorrect = false;
+
 $select = "SELECT * FROM account WHERE id=" . $_SESSION['account_id'];
 $result = mysqli_query($conn, $select);
 
 $value = mysqli_fetch_array($result);
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['password'])) {
@@ -123,8 +127,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password_err = "Your password is incorrect";
     }
 }
-
-mysqli_close($conn);
 ?>
 
 <body>
@@ -163,7 +165,7 @@ mysqli_close($conn);
                             echo $_GET['movieid'];
                         } else {
                             echo $_POST['movieid'];
-                        } ?>';">Confirm</button>
+                        } ?>'">Confirm</button>
                     </div>
                 <?php } ?>
             </div>

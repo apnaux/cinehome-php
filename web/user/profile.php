@@ -45,10 +45,19 @@ if (isset($_GET['logout'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $err = 0;
+
     if (md5($_POST['curpassword']) == $row['password'] || md5($_POST['password']) == $row['password']) {
         if ($_POST["submitForm"] == 'cred') {
             if ($_POST["email"] != '') {
-                $email = $_POST["email"];
+                $select = "SELECT * FROM account where email='". $_POST["email"] ."'";
+                $result = mysqli_query($conn, $select);
+
+                if(mysqli_num_rows($result) > 0){
+                    $err = 1;
+                } else {
+                    $email = $_POST["email"];
+                }
             }
 
             if ($_POST["full_name"] != '') {
@@ -59,9 +68,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $address = $_POST["address"];
             }
 
-            $select = "update account set email='" . $email . "', full_name='" . $name . "', full_address='" . $address . "', updated_at=CURRENT_TIMESTAMP() where id=" . $_SESSION['account_id'];
-            $result = mysqli_query($conn, $select);
-            $_SESSION['message'] = 'Successfully changed your credentials';
+            if($err == 0){
+                $select = "update account set email='" . $email . "', full_name='" . $name . "', full_address='" . $address . "', updated_at=CURRENT_TIMESTAMP() where id=" . $_SESSION['account_id'];
+                $result = mysqli_query($conn, $select);
+                $_SESSION['message'] = 'Successfully changed your credentials';
+            } else {
+                $_SESSION['message'] = 'E-mail already exists';
+            }
         } elseif ($_POST["submitForm"] == 'pass') {
             if($_POST["confnewpass"] == $_POST['newpassword']){
                 $select = "update account set password='" . md5($_POST['newpassword']) . "', updated_at=CURRENT_TIMESTAMP() where id=" . $_SESSION['account_id'];
@@ -105,6 +118,7 @@ mysqli_close($conn);
             <a href="/web/watch/home.php">Home</a>
             <a href="/web/watch/watch-history.php">Watch History</a>
             <p class="font-bold">Your Profile</p>
+            <a href="/web/user/customer-service.html?accessedfrom=profile">Contact us</a>
             <a href="?logout=true">Log out</a>
         </div>
     </nav>

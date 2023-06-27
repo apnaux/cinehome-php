@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["movie-select"])){
         header('Location: details.php/?movieid=' . $_POST["movie-select"]);
     }
-}
+}   
 
 $select = "SELECT * FROM movie WHERE status='showing'";
 $result = mysqli_query($conn, $select);
@@ -54,6 +54,7 @@ mysqli_close($conn);
             <p class="font-bold">Home</p>
             <a href="/web/watch/watch-history.php">Watch History</a>
             <a href="/web/user/profile.php">Your Profile</a>
+            <a href="/web/user/customer-service.html?accessedfrom=home">Contact us</a>
             <a href="?logout=true">Log out</a>
         </div>
     </nav>

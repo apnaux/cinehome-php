@@ -21,7 +21,8 @@
            <input     name="subj"     type="text"   class="form-control" placeholder=" Subject"      required> <br>
            <textarea  name="msg"      type="text"   class="form-control" placeholder="Drop message"  required cols="" rows="10"></textarea> <br>
 
-           <input type="submit" class="form-control submit"  value="Submit">
+           <input type="submit" class="form-control submit"  value="Submit"> <br>
+           <button type="button" class="form-control submit" onclick="goBack()">Go back</button>
            
        </form>
            <div class="popup" id="popupid">
@@ -34,6 +35,7 @@
     <script>
         let popup   =   document.getElementById('popupid');
         let form = document.getElementById("forms");
+        let from = '';
         
         form.addEventListener("submit", (event) => {
             event.preventDefault();
@@ -50,10 +52,19 @@
         function closePopup(){
            popup.classList.remove("showpopup");
         } 
-            
-      
         
-       
+        window.onload = () => {
+            const param = new URLSearchParams(new URL(window.location.href).search);
+            from = param.get('accessedfrom');
+        }
+
+        function goBack(){
+            if (from == 'profile'){
+                window.location.href = '/web/user/profile.php'
+            } else {
+                window.location.href = '/web/watch/' + from + '.php'
+            }
+        }
     </script>
     
     
